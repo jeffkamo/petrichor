@@ -1,0 +1,23 @@
+{
+  "name": "fftrainwreck",
+  "version": "0.0.0",
+  "description": "",
+  "authors": [
+    "Jeff Kamo"
+  ],
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "license": [
+    "MIT",
+    "Attribution-NonCommercial 4.0 International"
+  ],
+  "dependencies": {},
+  "devDependencies": {
+    "inquirer": "^0.8.5",
+    "edit-google-spreadsheet": "^0.2.19",
+    "cli-table": "^0.3.1",
+    "chalk": "1.0.0"
+  }
+}
