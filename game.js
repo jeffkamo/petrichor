@@ -1,7 +1,11 @@
 var inquirer = require('inquirer');
 var Table = require('cli-table');
-var enemyFactory = require('./lib/enemyFactory');
+var Bestiary = require('./lib/bestiary');
+var connect = require('./lib/connect');
 // var utils = require('./utils');
+
+var bestiary;
+var enemyFactory;
 
 
 // The Game
@@ -80,7 +84,7 @@ Game.prototype.processCommand = function(response) {
             console.log('Here\'s your inventory!');
             break;
         case 'enemy':
-            console.log(enemyFactory.create({type: 'thief'}));
+            console.log(bestiary.factory({type: 'plebe'}));
             break;
         default:
             console.log('No command provided...');
@@ -98,4 +102,5 @@ game = new Game();
 
 setTimeout(function() {
     game.executor();
+    bestiary = new Bestiary().init(connect('bestiary'));
 }, 1000);
