@@ -4,7 +4,6 @@ var Abilities = require('./lib/Abilities');
 var Bestiary = require('./lib/Bestiary');
 var Characters = require('./lib/Characters');
 var connect = require('./lib/connect');
-// var utils = require('./utils');
 
 
 // The Game
