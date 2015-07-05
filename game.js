@@ -61,7 +61,7 @@ Game.prototype.prompt = function(text, callback) {
     type: "list",
     name: "input",
     message: text ? text : 'Something went wrong... missing text for this prompt?',
-    choices: ['abilities', 'characters', 'enemy', 'exit']
+    choices: ['characters', 'enemy', 'abilities', 'exit']
   };
   inquirer.prompt([p], callback);
 };
@@ -111,6 +111,6 @@ var game = new Game();
 setTimeout(function() {
     game.executor();
     abilities = new Abilities().init(connect('jobAbilities'));
-    characters = new Characters().init(connect('characters'), connect('jobAbilities'));
+    characters = new Characters().init(connect('characters'));
     bestiary = new Bestiary().init(connect('bestiary', connect('jobAbilities')));
 }, 1000);
