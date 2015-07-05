@@ -1,5 +1,6 @@
 var inquirer = require('inquirer');
 var Table = require('cli-table');
+var Abilities = require('./lib/Abilities');
 var Bestiary = require('./lib/Bestiary');
 var Characters = require('./lib/Characters');
 var connect = require('./lib/connect');
@@ -60,7 +61,7 @@ Game.prototype.prompt = function(text, callback) {
     type: "list",
     name: "input",
     message: text ? text : 'Something went wrong... missing text for this prompt?',
-    choices: ['characters', 'enemy', 'exit']
+    choices: ['abilities', 'characters', 'enemy', 'exit']
   };
   inquirer.prompt([p], callback);
 };
@@ -88,6 +89,9 @@ Game.prototype.processCommand = function(response) {
         case 'characters':
             console.log(characters.factory({type: 'kamina'}));
             break;
+        case 'abilities':
+            console.log(abilities.factory({slug: 'attack'}));
+            break;
         default:
             console.log('No command provided...');
         break;
@@ -106,6 +110,7 @@ var game = new Game();
 
 setTimeout(function() {
     game.executor();
-    bestiary = new Bestiary().init(connect('bestiary'));
-    characters = new Characters().init(connect('characters'));
+    abilities = new Abilities().init(connect('jobAbilities'));
+    characters = new Characters().init(connect('characters'), connect('jobAbilities'));
+    bestiary = new Bestiary().init(connect('bestiary', connect('jobAbilities')));
 }, 1000);
