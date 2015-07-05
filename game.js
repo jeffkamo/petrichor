@@ -2,7 +2,7 @@ var inquirer = require('inquirer');
 var Table = require('cli-table');
 var Abilities = require('./lib/Abilities');
 var Bestiary = require('./lib/Bestiary');
-var Characters = require('./lib/Characters');
+var CharacterFactory = require('./lib/CharacterFactory');
 var connect = require('./lib/connect');
 
 
@@ -86,7 +86,7 @@ Game.prototype.processCommand = function(response) {
             console.log(bestiary.factory({type: 'plebe'}));
             break;
         case 'characters':
-            console.log(characters.factory({type: 'kamina'}));
+            console.log(characters.manufacture({type: 'kamina'}));
             break;
         case 'abilities':
             console.log(abilities.factory({slug: 'attack'}));
@@ -110,6 +110,6 @@ var game = new Game();
 setTimeout(function() {
     game.executor();
     abilities = new Abilities().init(connect('jobAbilities'));
-    characters = new Characters().init(connect('characters'));
+    characters = new CharacterFactory().init(connect('characters'));
     bestiary = new Bestiary().init(connect('bestiary', connect('jobAbilities')));
 }, 1000);
