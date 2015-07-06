@@ -72,12 +72,6 @@ Game.prototype.processCommand = function(response) {
         case 'exit':
             this.endProcess = true;
             break;
-        case 'help':
-            console.log('Here\'s your help list!');
-            break;
-        case 'inventory':
-            console.log('Here\'s your inventory!');
-            break;
         case 'enemy':
             console.log(this.bestiary.manufacture({type: 'plebe'}));
             break;
