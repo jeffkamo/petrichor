@@ -1,6 +1,5 @@
 var inquirer = require('inquirer');
 var Table = require('cli-table');
-var Abilities = require('./lib/Abilities');
 var CharacterFactory = require('./lib/CharacterFactory');
 var connect = require('./lib/connect');
 
@@ -59,7 +58,7 @@ Game.prototype.prompt = function(text, callback) {
     type: "list",
     name: "input",
     message: text ? text : 'Something went wrong... missing text for this prompt?',
-    choices: ['characters', 'enemy', 'abilities', 'exit']
+    choices: ['characters', 'enemy', 'exit']
   };
   inquirer.prompt([p], callback);
 };
@@ -87,9 +86,6 @@ Game.prototype.processCommand = function(response) {
         case 'characters':
             console.log(characters.manufacture({type: 'kamina'}));
             break;
-        case 'abilities':
-            console.log(abilities.factory({slug: 'attack'}));
-            break;
         default:
             console.log('No command provided...');
         break;
@@ -104,11 +100,12 @@ Game.prototype.processCommand = function(response) {
 
 var bestiary;
 var characters;
+var abilities;
 var game = new Game();
 
 setTimeout(function() {
     game.executor();
-    abilities = new Abilities().init(connect('jobAbilities'));
-    characters = new CharacterFactory().init(connect('characters'));
-    bestiary = new CharacterFactory().init(connect('bestiary'));
+    abilities = connect('jobAbilities'); //new Abilities().init(connect('jobAbilities'));
+    characters = new CharacterFactory().init(connect('characters'), abilities);
+    bestiary = new CharacterFactory().init(connect('bestiary'), abilities);
 }, 1000);
