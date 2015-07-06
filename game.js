@@ -1,6 +1,7 @@
 var inquirer = require('inquirer');
 var Table = require('cli-table');
 var CharacterFactory = require('./lib/CharacterFactory');
+var Combat = require('./lib/Combat');
 var connect = require('./lib/connect');
 
 
@@ -8,10 +9,7 @@ var connect = require('./lib/connect');
 // ===
 
 function Game() {
-    this.party = {};
-    this.inventory = {};
     this.endProcess = false;
-    this.enemies = [];
 }
 
 
@@ -35,7 +33,7 @@ Game.prototype.help = function() {
 // Then the loop will continue until the next "something happens".
 
 Game.prototype.executor = function() {
-    this.prompt(' ', function(response) {
+    this.prompt(function(response) {
         this.processCommand(response);
 
         if (this.endProcess) {
@@ -53,14 +51,14 @@ Game.prototype.executor = function() {
 //
 // This is the standard game prompt.
 
-Game.prototype.prompt = function(text, callback) {
-  var p = {
-    type: "list",
-    name: "input",
-    message: text ? text : 'Something went wrong... missing text for this prompt?',
-    choices: ['characters', 'enemy', 'exit']
-  };
-  inquirer.prompt([p], callback);
+Game.prototype.prompt = function(callback) {
+    var p = {
+        type: "list",
+        name: "input",
+        message: 'What do you want to do?',
+        choices: ['combat', 'characters', 'enemy', 'exit']
+    };
+    inquirer.prompt([p], callback);
 };
 
 
@@ -85,6 +83,22 @@ Game.prototype.processCommand = function(response) {
             break;
         case 'characters':
             console.log(characters.manufacture({type: 'kamina'}));
+            break;
+        case 'combat':
+            // End the Game.executor process, as we will start a new Combat one
+            this.endProcess = true;
+
+            // Instantiate a new Combat
+            var combat = new Combat(this);
+
+            // Add players
+            // combat.addParty(['kamina']);
+
+            // Add enemies
+            // combat.addEnemy(['plebe']);
+
+            // Start!
+            combat.init();
             break;
         default:
             console.log('No command provided...');
