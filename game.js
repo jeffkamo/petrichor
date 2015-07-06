@@ -79,10 +79,10 @@ Game.prototype.processCommand = function(response) {
             console.log('Here\'s your inventory!');
             break;
         case 'enemy':
-            console.log(bestiary.manufacture({type: 'plebe'}));
+            console.log(this.bestiary.manufacture({type: 'plebe'}));
             break;
         case 'characters':
-            console.log(characters.manufacture({type: 'kamina'}));
+            console.log(this.characters.manufacture({type: 'kamina'}));
             break;
         case 'combat':
             // End the Game.executor process, as we will start a new Combat one
@@ -112,14 +112,11 @@ Game.prototype.processCommand = function(response) {
 // Run the Game!
 // ---
 
-var bestiary;
-var characters;
-var abilities;
 var game = new Game();
 
 setTimeout(function() {
     game.executor();
-    abilities = connect('jobAbilities'); //new Abilities().init(connect('jobAbilities'));
-    characters = new CharacterFactory().init(connect('characters'), abilities);
-    bestiary = new CharacterFactory().init(connect('bestiary'), abilities);
-}, 1000);
+    game.abilities = connect('jobAbilities');
+    game.characters = new CharacterFactory().init(connect('characters'), game.abilities);
+    game.bestiary = new CharacterFactory().init(connect('bestiary'), game.abilities);
+}, 2000);
