@@ -76,7 +76,7 @@ Game.prototype.currentOptions = function() {
     }
 
     if (this.state == this.states.combat) {
-        return ['offensive', 'defensive', 'secondary', 'exit'];
+        return ['offensive', 'defensive', 'secondary', '', 'party', 'enemies', 'exit'];
     }
 };
 
@@ -107,10 +107,10 @@ Game.prototype.processCommand = function(response) {
             this.combat = new Combat(this);
 
             // Add players
-            // combat.addParty(['kamina']);
+            this.combat.addParty(['kamina']);
 
             // Add enemies
-            // combat.addEnemy(['plebe']);
+            this.combat.addEnemies(['plebe']);
 
             // Start!
             this.combat.init();
