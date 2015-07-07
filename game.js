@@ -10,6 +10,11 @@ var connect = require('./lib/connect');
 
 function Game() {
     this.endProcess = false;
+    this.states = {
+        'default': 'default',
+        'combat' : 'combat'
+    };
+    this.state = this.states.default;
 }
 
 
@@ -56,9 +61,23 @@ Game.prototype.prompt = function(callback) {
         type: "list",
         name: "input",
         message: 'What do you want to do?',
-        choices: ['combat', 'characters', 'enemy', 'exit']
+        choices: this.currentOptions()
     };
     inquirer.prompt([p], callback);
+};
+
+
+// Current Options
+// ---
+
+Game.prototype.currentOptions = function() {
+    if (this.state == this.states.default) {
+        return ['combat', 'characters', 'enemy', 'exit'];
+    }
+
+    if (this.state == this.states.combat) {
+        return ['offensive', 'defensive', 'secondary', 'exit'];
+    }
 };
 
 
@@ -67,6 +86,11 @@ Game.prototype.prompt = function(callback) {
 
 Game.prototype.processCommand = function(response) {
     console.log('\n');
+
+    if (this.state == this.states.combat) {
+        this.combat.processCommands(response);
+        return;
+    }
 
     switch (response.input) {
         case 'exit':
@@ -79,11 +103,8 @@ Game.prototype.processCommand = function(response) {
             console.log(this.characters.manufacture({type: 'kamina'}));
             break;
         case 'combat':
-            // End the Game.executor process, as we will start a new Combat one
-            this.endProcess = true;
-
             // Instantiate a new Combat
-            var combat = new Combat(this);
+            this.combat = new Combat(this);
 
             // Add players
             // combat.addParty(['kamina']);
@@ -92,7 +113,7 @@ Game.prototype.processCommand = function(response) {
             // combat.addEnemy(['plebe']);
 
             // Start!
-            combat.init();
+            this.combat.init();
             break;
         default:
             console.log('No command provided...');
