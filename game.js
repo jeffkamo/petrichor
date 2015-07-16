@@ -10,11 +10,11 @@ var connect = require('./lib/connect');
 
 function Game() {
     this.endProcess = false;
-    this.states = {
+    this.STATES = {
         'default': 'default',
         'combat' : 'combat'
     };
-    this.state = this.states.default;
+    this.currentState = this.STATES.default;
 }
 
 
@@ -71,11 +71,11 @@ Game.prototype.prompt = function(callback) {
 // ---
 
 Game.prototype.currentOptions = function() {
-    if (this.state == this.states.default) {
+    if (this.currentState == this.STATES.default) {
         return ['combat', 'characters', 'enemy', 'exit'];
     }
 
-    if (this.state == this.states.combat) {
+    if (this.currentState == this.STATES.combat) {
         return ['offensive', 'defensive', 'secondary', '', 'party', 'enemies', 'exit'];
     }
 };
@@ -87,7 +87,7 @@ Game.prototype.currentOptions = function() {
 Game.prototype.processCommand = function(response) {
     console.log('\n');
 
-    if (this.state == this.states.combat) {
+    if (this.currentState == this.STATES.combat) {
         this.combat.processCommands(response);
         return;
     }
