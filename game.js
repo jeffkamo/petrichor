@@ -38,7 +38,14 @@ Game.prototype.help = function() {
 // Then the loop will continue until the next "something happens".
 
 Game.prototype.executor = function() {
-    this.prompt(function(response) {
+    var p = [{
+        type: "list",
+        name: "input",
+        message: 'What will you do?',
+        choices: this.currentOptions()
+    }];
+
+    inquirer.prompt(p, function(response) {
         this.processCommand(response);
 
         if (this.endProcess) {
@@ -48,22 +55,6 @@ Game.prototype.executor = function() {
 
         this.executor(); // continue the loop!
     }.bind(this));
-};
-
-
-// Prompt
-// ---
-//
-// This is the standard game prompt.
-
-Game.prototype.prompt = function(callback) {
-    var p = {
-        type: "list",
-        name: "input",
-        message: 'What do you want to do?',
-        choices: this.currentOptions()
-    };
-    inquirer.prompt([p], callback);
 };
 
 
