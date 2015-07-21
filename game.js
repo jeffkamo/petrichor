@@ -97,14 +97,9 @@ Game.prototype.processCommand = function(response) {
             // Instantiate a new Combat
             this.combat = new Combat(this);
 
-            // Add players
-            this.combat.addParty(['kamina']);
+            // Initialize a new combat
+            this.combat.init(['kamina'], ['plebe']);
 
-            // Add enemies
-            this.combat.addEnemies(['plebe']);
-
-            // Start!
-            this.combat.init();
             break;
         default:
             console.log('No command provided...');
