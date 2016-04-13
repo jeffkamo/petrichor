@@ -67,7 +67,7 @@ Game.prototype.currentOptions = function() {
     }
 
     if (this.currentState == this.STATES.combat) {
-        return ['offensive', 'defensive', 'secondary', '', 'party', 'enemies', 'exit'];
+        return ['offensive', 'defensive', 'secondary', '', 'party', 'enemies', 'back'];
     }
 };
 
