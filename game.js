@@ -98,7 +98,7 @@ Game.prototype.processCommand = function(response) {
             this.combat = new Combat(this);
 
             // Initialize a new combat
-            this.combat.init(['kamina'], ['plebe']);
+            this.combat.init(['kamina', 'basch'], ['plebe', 'augurKnight']);
 
             break;
         default:
