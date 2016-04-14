@@ -2,6 +2,8 @@
 
 A Final Fantasy inspired text adventure novel developed by Jeffrey Kamo and co-written with Roman Kovacic.
 
+![fother_34c68a_5509038](https://cloud.githubusercontent.com/assets/734535/14518964/85224aea-01d0-11e6-846f-d43522b4876d.gif)
+
 
 ## How to Play
 
