@@ -1,8 +1,12 @@
 var inquirer = require('inquirer');
-var Table = require('cli-table');
-var CharacterFactory = require('./lib/CharacterFactory');
-var Combat = require('./lib/Combat');
 var connect = require('./lib/connect');
+
+var Combat = require('./lib/Combat');
+var CharacterFactory = require('./lib/CharacterFactory');
+
+var STATES = require('./lib/states').STATES;
+var ACTIONS = require('./lib/states').ACTIONS;
+var COMMANDS = require('./lib/states').COMMANDS;
 
 
 // The Game
@@ -10,11 +14,10 @@ var connect = require('./lib/connect');
 
 function Game() {
     this.endProcess = false;
-    this.STATES = {
-        'default': 'default',
-        'combat' : 'combat'
-    };
-    this.currentState = this.STATES.default;
+    this.STATES = STATES;
+    this.ACTIONS = ACTIONS;
+    this.COMMANDS = COMMANDS;
+    this.currentState = STATES.default;
 }
 
 
@@ -42,7 +45,7 @@ Game.prototype.executor = function() {
         type: "list",
         name: "input",
         message: 'What will you do?',
-        choices: this.currentOptions()
+        choices: this.getCommands()
     }];
 
     inquirer.prompt(p, function(response) {
@@ -58,17 +61,17 @@ Game.prototype.executor = function() {
 };
 
 
-// Current Options
+// Get Commands
 // ---
+//
+// Based on the current game state, get the current list of commands
 
-Game.prototype.currentOptions = function() {
-    if (this.currentState == this.STATES.default) {
-        return ['combat', 'characters', 'enemy', 'exit'];
-    }
+Game.prototype.getCommands = function() {
+    var currentActions = this.ACTIONS[this.currentState];
 
-    if (this.currentState == this.STATES.combat) {
-        return ['offensive', 'defensive', 'secondary', '', 'party', 'enemies', 'back'];
-    }
+    return Object.keys(currentActions).map(function(key) {
+        return currentActions[key];
+    });
 };
 
 
@@ -78,33 +81,7 @@ Game.prototype.currentOptions = function() {
 Game.prototype.processCommand = function(response) {
     console.log('\n');
 
-    if (this.currentState == this.STATES.combat) {
-        this.combat.processCommands(response);
-        return;
-    }
-
-    switch (response.input) {
-        case 'exit':
-            this.endProcess = true;
-            break;
-        case 'enemy':
-            console.log(this.bestiary.manufacture({type: 'plebe'}));
-            break;
-        case 'characters':
-            console.log(this.characters.manufacture({type: 'kamina'}));
-            break;
-        case 'combat':
-            // Instantiate a new Combat
-            this.combat = new Combat(this);
-
-            // Initialize a new combat
-            this.combat.init(['kamina', 'basch'], ['plebe', 'augurKnight']);
-
-            break;
-        default:
-            console.log('No command provided...');
-        break;
-    }
+    this.COMMANDS[this.currentState](response, this);
 
     console.log('\n');
 };
