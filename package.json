@@ -19,6 +19,7 @@
     "edit-google-spreadsheet": "^0.2.19",
     "cli-table": "^0.3.1",
     "chalk": "1.0.0",
-    "chance": "1.0.1"
+    "chance": "1.0.1",
+    "node-typewriter": "0.0.2"
   }
 }

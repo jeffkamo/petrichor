@@ -3,6 +3,7 @@ var connect = require('./lib/connect');
 
 var Combat = require('./lib/Combat');
 var CharacterFactory = require('./lib/CharacterFactory');
+var Script = require('./lib/Script');
 
 var STATES = require('./lib/states').STATES;
 var ACTIONS = require('./lib/states').ACTIONS;
@@ -13,7 +14,8 @@ var COMMANDS = require('./lib/states').COMMANDS;
 // ===
 
 function Game() {
-    this.endProcess = false;
+    this.endProcess = false; // set true to exit the game
+    this.skipPrompt = false; // set to true if you want to prevent command prompt
     this.STATES = STATES;
     this.ACTIONS = ACTIONS;
     this.COMMANDS = COMMANDS;
@@ -47,6 +49,11 @@ Game.prototype.executor = function() {
         message: 'What will you do?',
         choices: this.getCommands()
     }];
+
+    // Skip prompt
+    if (this.skipPrompt) {
+        return;
+    }
 
     inquirer.prompt(p, function(response) {
         this.processCommand(response);
@@ -97,4 +104,5 @@ setTimeout(function() {
     game.abilities = connect('jobAbilities');
     game.characters = new CharacterFactory().init(connect('characters'), game.abilities);
     game.bestiary = new CharacterFactory().init(connect('bestiary'), game.abilities);
+    game.script = new Script(connect('script'));
 }, 2000);
