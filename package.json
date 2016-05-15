@@ -1,20 +1,25 @@
 {
   "name": "fftrainwreck",
-  "version": "0.0.0",
+  "version": "0.0.0alpha1",
   "description": "",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron main.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jeffkamo/fftrainwreck.git"
+  },
   "authors": [
     "Jeff Kamo"
   ],
-  "repository": {
-    "type": "git",
-    "url": ""
-  },
   "license": [
     "MIT",
     "Attribution-NonCommercial 4.0 International"
   ],
   "dependencies": {},
   "devDependencies": {
+    "electron-prebuilt": "^1.0.1",
     "inquirer": "^0.8.5",
     "edit-google-spreadsheet": "^0.2.19",
     "cli-table": "^0.3.1",
