@@ -5,58 +5,156 @@ A Final Fantasy inspired text adventure novel developed by Jeffrey Kamo and co-w
 ![fother_34c68a_5509038](https://cloud.githubusercontent.com/assets/734535/14518964/85224aea-01d0-11e6-846f-d43522b4876d.gif)
 
 
-## How to Play
+## Installation
 
-Right now this game is a bit developer focused. You'll have to follow these steps to make the game work as is (in terminal or your command line of choice):
+* **Note: requires a node version >= 4 and an npm version >= 3.**
+* **If you have installation or compilation issues with this project, please see [the debugging guide](https://github.com/chentsulin/electron-react-boilerplate/issues/400)** (indeed, this app uses [electron-react-boilerplate](https://github.com/chentsulin/electron-react-boilerplate)!)
 
-
-### Pre-Requisites
-
-Node must be installed on your machine, as well as NPM.
-
-1. [Install Node](https://nodejs.org/download/) via their website
-2. Run `sudo npm install npm -g` to install NPM
-
-
-### Installing the Game
-
-1. Clone this repo to your computer `git clone (code to come soon...)`
-2. Change the directory to the newly cloned repo with `cd fftrainwreck`
-3. Run `npm install`
-4. Now you can run the game with `node game.js`
-
-
-### Running the Game
+First, clone the repo via git:
 
 ```
-npm start
+$ git clone https://github.com/jeffkamo/fftrainwreck.git
+```
+
+And then install dependencies. ProTip: Install with yarn for faster and safer installation
+
+```
+$ npm install
+```
+
+## Run
+
+```
+$ npm run dev
+```
+
+## DevTools
+
+#### Toggle Chrome DevTools
+
+- OS X: <kbd>Cmd</kbd> <kbd>Alt</kbd> <kbd>I</kbd> or <kbd>F12</kbd>
+- Linux: <kbd>Ctrl</kbd> <kbd>Shift</kbd> <kbd>I</kbd> or <kbd>F12</kbd>
+- Windows: <kbd>Ctrl</kbd> <kbd>Shift</kbd> <kbd>I</kbd> or <kbd>F12</kbd>
+
+*See [electron-debug](https://github.com/sindresorhus/electron-debug) for more information.*
+
+#### DevTools extension
+
+This boilerplate is included following DevTools extensions:
+
+* [Devtron](https://github.com/electron/devtron) - Install via [electron-debug](https://github.com/sindresorhus/electron-debug).
+* [React Developer Tools](https://github.com/facebook/react-devtools) - Install via [electron-devtools-installer](https://github.com/GPMDP/electron-devtools-installer).
+* [Redux DevTools](https://github.com/zalmoxisus/redux-devtools-extension) - Install via [electron-devtools-installer](https://github.com/GPMDP/electron-devtools-installer).
+
+You can find the tabs on Chrome DevTools.
+
+If you want to update extensions version, please set `UPGRADE_EXTENSIONS` env, just run:
+
+```bash
+$ UPGRADE_EXTENSIONS=1 npm run dev
+
+# For Windows
+$ set UPGRADE_EXTENSIONS=1 && npm run dev
 ```
 
 
-## Story
+## Externals
 
-(Coming soon)
+If you use any 3rd party libraries which can't or won't be built with webpack, you must list them in your `webpack.config.base.js`：
+
+```javascript
+externals: [
+  // put your node 3rd party libraries which can't be built with webpack here (mysql, mongodb, and so on..)
+]
+```
+
+For a common example, to install Bootstrap, `npm i --save bootstrap` and link them in the head of app.html
+
+```html
+<link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css" />
+<link rel="image/svg+xml" href="../node_modules/bootstrap/dist/fonts/glyphicons-halflings-regular.eot" />
+...
+```
+
+Make sure to list bootstrap in externals in `webpack.config.base.js` or the app won't include them in the package:
+```js
+externals: ['bootstrap']
+```
 
 
-## Combat
+## CSS Modules
 
-(Coming soon)
+This boilerplate out of the box is configured to use [css-modules](https://github.com/css-modules/css-modules).
+
+All `.css` file extensions will use css-modules unless it has `.global.css`.
+
+If you need global styles, stylesheets with `.global.css` will not go through the
+css-modules loader. e.g. `app.global.css`
+
+
+## Package
+
+```bash
+$ npm run package
+```
+
+To package apps for all platforms:
+
+```bash
+$ npm run package-all
+```
+
+To package apps with options:
+
+```bash
+$ npm run package -- --[option]
+```
+
+#### Options
+
+- --name, -n: Application name (default: ElectronReact)
+- --version, -v: Electron version (default: latest version)
+- --asar, -a: [asar](https://github.com/atom/asar) support (default: false)
+- --icon, -i: Application icon
+- --all: pack for all platforms
+
+Use `electron-packager` to pack your app with `--all` options for darwin (osx), linux and win32 (windows) platform. After build, you will find them in `release` folder. Otherwise, you will only find one for your os.
+
+`test`, `tools`, `release` folder and devDependencies in `package.json` will be ignored by default.
+
+#### Default Ignore modules
+
+We add some module's `peerDependencies` to ignore option as default for application size reduction.
+
+- `babel-core` is required by `babel-loader` and its size is ~19 MB
+- `node-libs-browser` is required by `webpack` and its size is ~3MB.
+
+> **Note:** If you want to use any above modules in runtime, for example: `require('babel/register')`, you should move them from `devDependencies` to `dependencies`.
+
+
+## Static Type Checking
+This project comes with Flow support out of the box! You can annotate your code with types, [get Flow errors as ESLint errors](https://github.com/amilajack/eslint-plugin-flowtype-errors), and get [type errors during runtime](https://github.com/gcanti/babel-plugin-tcomb-boilerplate) during development. Types are completely optional.
+
+
+## Dispatching redux actions from main process
+
+see discusses in [#118](https://github.com/chentsulin/electron-react-boilerplate/issues/118) and [#108](https://github.com/chentsulin/electron-react-boilerplate/issues/108)
 
 
 ## Credits
 
 - Final Fantasy is owned by Square Enix
-- Inspiration for the text adventure platform started with [cli-adventure-games](https://github.com/arvindr21/cli-adventure-games/) by @arvindr21, from which I may be borrowing some code and/or concepts.
+- Inspiration for the text adventure platform started with [cli-adventure-games](https://github.com/arvindr21/cli-adventure-games/)
+- Props to the folks at [electron-react-boilerplate](https://github.com/chentsulin/electron-react-boilerplate) for their fantastic work on a great way to kickoff an Electron + React + Webkit boilerplate!
 
 
 ## Licenses
-
 
 ### The Game Code
 
 The MIT License (MIT)
 
-Copyright (c) 2015 Jeffrey Kamo
+Copyright (c) 2015-2016 Jeffrey Kamo
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
