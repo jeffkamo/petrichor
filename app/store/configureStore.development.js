@@ -5,10 +5,10 @@ import { routerMiddleware, push } from 'react-router-redux';
 import createLogger from 'redux-logger';
 import rootReducer from '../reducers';
 
-import * as counterActions from '../actions/counter';
+import * as dashboardActions from '../actions/dashboard';
 
 const actionCreators = {
-  ...counterActions,
+  ...dashboardActions,
   push,
 };
 

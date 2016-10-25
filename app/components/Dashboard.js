@@ -1,16 +1,15 @@
 // @flow
 import React, { Component } from 'react';
 import { Link } from 'react-router';
-import styles from './Home.css';
+import styles from './Dashboard.css';
 
 
-export default class Home extends Component {
+export default class Dashboard extends Component {
   render() {
     return (
       <div>
         <div className={styles.container}>
-          <h2>Home</h2>
-          <Link to="/counter">to Counter</Link>
+          <h1>Dashboard</h1>
         </div>
       </div>
     );
