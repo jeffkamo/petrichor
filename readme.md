@@ -28,7 +28,9 @@ Node must be installed on your machine, as well as NPM.
 
 ### Running the Game
 
-(Coming soon)
+```
+npm start
+```
 
 
 ## Story
