@@ -43,7 +43,7 @@ module.exports = {
       clear: true
     },
     {
-      file: 'app/components/Dashboard.js',
+      file: 'app/components/dashboard/Dashboard.js',
       pattern: /(h2|Link to)/
     }
   ],

@@ -2,7 +2,7 @@
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import * as DashboardActions from '../actions/dashboard';
-import Dashboard from '../components/Dashboard';
+import Dashboard from '../components/dashboard/Dashboard';
 
 function mapStateToProps(state) {
   return {

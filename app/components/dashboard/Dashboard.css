@@ -1,0 +1,41 @@
+.root {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 8px 16px;
+
+    background: #f44336;
+}
+
+.title {
+    color: rgba(255, 255, 255, 0.85);
+    font-weight: normal;
+    font-size: 12px;
+}
+
+.body {
+    display: flex;
+    overflow: scroll;
+    flex-direction: column-reverse;
+    align-items: flex-end;
+    flex: 1 1 auto;
+}
+
+.prompter {
+    width: 100%;
+    max-width: 100%;
+    padding: 16px;
+}
+
+.nav {
+    padding: 8px 16px;
+
+    background: rgba(255, 255, 255, 0.05);
+}

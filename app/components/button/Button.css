@@ -1,0 +1,39 @@
+.root {
+    display: inline-table;
+    justify-content: center;
+    align-items: center;
+    min-width: 44px;
+    min-height: 44px;
+    padding: 0;
+    border: 0;
+
+    background: transparent;
+
+    color: inherit;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+
+    -webkit-appearance: none;
+}
+
+.root:focus {
+    outline: 0;
+}
+
+.root:focus .inner::after {
+    content: '<';
+
+    display: block;
+    flex: 0 0 auto;
+    padding-left: 0.5em;
+}
+
+.root[disabled] {
+    opacity: 0.2;
+}
+
+.inner {
+    display: flex;
+    align-items: center;
+}
