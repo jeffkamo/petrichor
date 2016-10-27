@@ -5,6 +5,16 @@ import styles from './Dashboard.css';
 import Button from '../button/Button';
 
 export default class Dashboard extends Component {
+    constructor() {
+        super()
+
+        this.onExitClick = this.onExitClick.bind(this)
+    }
+
+    onExitClick() {
+        this.props.onQuit()
+    }
+
     render() {
         return (
             <div className={styles.root}>
@@ -14,6 +24,8 @@ export default class Dashboard extends Component {
 
                 <div className={styles.body}>
                     <div className={styles.prompter}>
+
+                        {/*
                         <p>Meanwhile, back in the dojo...</p>
 
                         <dl>
@@ -24,20 +36,24 @@ export default class Dashboard extends Component {
                             <dt>Basch</dt>
                                 <dd>...</dd>
                         </dl>
+                        */}
+
+                        <p>What would you like to do?</p>
+
                     </div>
                 </div>
 
                 <nav role="navigation" className={styles.nav}>
                     <div>
-                        <Button>Continue</Button>
+                        <Button>Story</Button>
                     </div>
 
                     <div>
-                        <Button disabled>Fight!</Button>
+                        <Button>Combat</Button>
                     </div>
 
                     <div>
-                        <Button>Exit</Button>
+                        <Button onClick={this.onExitClick}>Exit</Button>
                     </div>
                 </nav>
             </div>

@@ -1,4 +1,4 @@
-import { app, BrowserWindow, Menu, shell } from 'electron';
+import { app, BrowserWindow, Menu, shell, ipcMain as ipc } from 'electron';
 
 let menu;
 let template;
@@ -13,6 +13,10 @@ if (process.env.NODE_ENV === 'development') {
 app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') app.quit();
 });
+
+ipc.on('quit', () => {
+    app.quit();
+})
 
 
 const installExtensions = async () => {

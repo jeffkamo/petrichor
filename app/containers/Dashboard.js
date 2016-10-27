@@ -6,7 +6,7 @@ import Dashboard from '../components/dashboard/Dashboard';
 
 function mapStateToProps(state) {
   return {
-    counter: state.counter
+    // counter: state.counter
   };
 }
 
