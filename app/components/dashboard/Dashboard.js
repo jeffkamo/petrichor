@@ -1,21 +1,56 @@
-// @flow
-import React, { Component } from 'react';
-import styles from './Dashboard.css';
+import React, { Component } from 'react'
+import styles from './Dashboard.css'
+import {ipcRenderer as ipc} from 'electron'
 
-import Button from '../button/Button';
+import Menu from '../menu/Menu'
+import Prompter from '../prompter/Prompter'
 
 export default class Dashboard extends Component {
     constructor() {
         super()
 
+        this.onStartClick = this.onStartClick.bind(this)
+        this.onStoryClick = this.onStoryClick.bind(this)
+        this.onCombatClick = this.onCombatClick.bind(this)
         this.onExitClick = this.onExitClick.bind(this)
+        // this.renderPrompter = this.renderPrompter.bind(this)
+    }
+
+    onStartClick() {
+        this.props.goToStart()
+    }
+
+    onStoryClick() {
+        this.props.goToStory()
+    }
+
+    onCombatClick() {
+        this.props.goToCombat()
     }
 
     onExitClick() {
-        this.props.onQuit()
+        ipc.send('quit')
     }
 
+    // renderPrompter() {
+    //     const {mode} = this.props.dashboard.toJS()
+    //
+    //     if (mode === 'start') {
+    //         return <p>What would you like to do?</p>
+    //     }
+    //
+    //     if (mode === 'story') {
+    //         return <p>Story time!</p>
+    //     }
+    //
+    //     if (mode === 'combat') {
+    //         return <p>Combat time!</p>
+    //     }
+    // }
+
     render() {
+        const {mode} = this.props.dashboard.toJS()
+
         return (
             <div className={styles.root}>
                 <header className={styles.header}>
@@ -24,39 +59,18 @@ export default class Dashboard extends Component {
 
                 <div className={styles.body}>
                     <div className={styles.prompter}>
-
-                        {/*
-                        <p>Meanwhile, back in the dojo...</p>
-
-                        <dl>
-                            <dt>Basch</dt>
-                                <dd>Women shouldn’t carry swords.</dd>
-                            <dt>Yokiko</dt>
-                                <dd>I don’t carry swords, I carry a fucking lance.</dd>
-                            <dt>Basch</dt>
-                                <dd>...</dd>
-                        </dl>
-                        */}
-
-                        <p>What would you like to do?</p>
-
+                        <Prompter mode={mode} />
                     </div>
                 </div>
 
                 <nav role="navigation" className={styles.nav}>
-                    <div>
-                        <Button>Story</Button>
-                    </div>
-
-                    <div>
-                        <Button>Combat</Button>
-                    </div>
-
-                    <div>
-                        <Button onClick={this.onExitClick}>Exit</Button>
-                    </div>
+                    <Menu mode={mode}
+                        onStartClick={this.onStartClick}
+                        onStoryClick={this.onStoryClick}
+                        onCombatClick={this.onCombatClick}
+                        onExitClick={this.onExitClick} />
                 </nav>
             </div>
-        );
+        )
     }
 }

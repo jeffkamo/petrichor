@@ -1,10 +1,10 @@
 // @flow
 import { combineReducers } from 'redux';
 import { routerReducer as routing } from 'react-router-redux';
-// import example from './example';
+import dashboard from './dashboard';
 
 const rootReducer = combineReducers({
-  // example,
+  dashboard,
   routing
 });
 
