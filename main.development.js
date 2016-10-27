@@ -69,9 +69,9 @@ app.on('ready', async () => {
 
   if (process.platform === 'darwin') {
     template = [{
-      label: 'Electron',
+      label: 'FF:Trainwreck',
       submenu: [{
-        label: 'About ElectronReact',
+        label: 'About FF:Trainwreck',
         selector: 'orderFrontStandardAboutPanel:'
       }, {
         type: 'separator'
@@ -81,7 +81,7 @@ app.on('ready', async () => {
       }, {
         type: 'separator'
       }, {
-        label: 'Hide ElectronReact',
+        label: 'Hide FF:Trainwreck',
         accelerator: 'Command+H',
         selector: 'hide:'
       }, {
@@ -99,35 +99,6 @@ app.on('ready', async () => {
         click() {
           app.quit();
         }
-      }]
-    }, {
-      label: 'Edit',
-      submenu: [{
-        label: 'Undo',
-        accelerator: 'Command+Z',
-        selector: 'undo:'
-      }, {
-        label: 'Redo',
-        accelerator: 'Shift+Command+Z',
-        selector: 'redo:'
-      }, {
-        type: 'separator'
-      }, {
-        label: 'Cut',
-        accelerator: 'Command+X',
-        selector: 'cut:'
-      }, {
-        label: 'Copy',
-        accelerator: 'Command+C',
-        selector: 'copy:'
-      }, {
-        label: 'Paste',
-        accelerator: 'Command+V',
-        selector: 'paste:'
-      }, {
-        label: 'Select All',
-        accelerator: 'Command+A',
-        selector: 'selectAll:'
       }]
     }, {
       label: 'View',
@@ -177,22 +148,12 @@ app.on('ready', async () => {
       submenu: [{
         label: 'Learn More',
         click() {
-          shell.openExternal('http://electron.atom.io');
+          shell.openExternal('https://github.com/jeffkamo/fftrainwreck');
         }
       }, {
-        label: 'Documentation',
+        label: 'Report an Issue',
         click() {
-          shell.openExternal('https://github.com/atom/electron/tree/master/docs#readme');
-        }
-      }, {
-        label: 'Community Discussions',
-        click() {
-          shell.openExternal('https://discuss.atom.io/c/electron');
-        }
-      }, {
-        label: 'Search Issues',
-        click() {
-          shell.openExternal('https://github.com/atom/electron/issues');
+          shell.openExternal('https://github.com/jeffkamo/fftrainwreck/issues');
         }
       }]
     }];
@@ -203,9 +164,6 @@ app.on('ready', async () => {
     template = [{
       label: '&File',
       submenu: [{
-        label: '&Open',
-        accelerator: 'Ctrl+O'
-      }, {
         label: '&Close',
         accelerator: 'Ctrl+W',
         click() {
@@ -244,22 +202,12 @@ app.on('ready', async () => {
       submenu: [{
         label: 'Learn More',
         click() {
-          shell.openExternal('http://electron.atom.io');
+          shell.openExternal('https://github.com/jeffkamo/fftrainwreck');
         }
       }, {
-        label: 'Documentation',
+        label: 'Report an Issue',
         click() {
-          shell.openExternal('https://github.com/atom/electron/tree/master/docs#readme');
-        }
-      }, {
-        label: 'Community Discussions',
-        click() {
-          shell.openExternal('https://discuss.atom.io/c/electron');
-        }
-      }, {
-        label: 'Search Issues',
-        click() {
-          shell.openExternal('https://github.com/atom/electron/issues');
+          shell.openExternal('https://github.com/jeffkamo/fftrainwreck/issues');
         }
       }]
     }];
