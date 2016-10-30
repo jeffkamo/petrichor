@@ -6,16 +6,16 @@ import Button from '../button'
 const Menu = (props) => {
 
     const menus = {
-        start: [
+        [commands.START]: [
             ['Story',  commands.STORY,  props.onSetMode],
             ['Combat', commands.COMBAT, props.onSetMode],
             ['Exit',   commands.EXIT,   props.onExitClick],
         ],
-        story: [
+        [commands.STORY]: [
             ['Continue', commands.CONTINUE, props.onSetMode],
             ['Back',     commands.START,    props.onSetMode],
         ],
-        combat: [
+        [commands.COMBAT]: [
             ['Offense',   commands.OFFENSE,   props.onSetDirective],
             ['Defense',   commands.DEFENSE,   props.onSetDirective],
             ['Secondary', commands.SECONDARY, props.onSetDirective],
