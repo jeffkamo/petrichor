@@ -1,17 +1,18 @@
 import React, { Component, PropTypes } from 'react';
+import {commands} from '../../constants'
 
 const Prompter = ({mode}) => {
-    if (mode === 'start') {
-        return <p>What would you like to do?</p>
+    const prompts = {
+        [commands.START]:  <p>What would you like to do?</p>,
+        [commands.STORY]:  <p>Story time!</p>,
+        [commands.COMBAT]: <p>Combat time!</p>,
     }
 
-    if (mode === 'story') {
-        return <p>Story time!</p>
-    }
-
-    if (mode === 'combat') {
-        return <p>Combat time!</p>
-    }
+    return (
+        <div>
+            {prompts[mode]}
+        </div>
+    )
 }
 
 Prompter.propTypes = {
