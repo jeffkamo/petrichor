@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import {commands} from '../../constants';
 
-import Button from '../button/Button'
+import Button from '../button'
 
 const Menu = (props) => {
 

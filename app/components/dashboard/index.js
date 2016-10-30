@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
-import styles from './Dashboard.css'
+import styles from './styles.css'
 import {ipcRenderer as ipc} from 'electron'
 
-import Menu from '../menu/Menu'
-import Prompter from '../prompter/Prompter'
+import Menu from '../menu'
+import Prompter from '../prompter'
 
 export default class Dashboard extends Component {
     constructor() {

@@ -1,8 +1,8 @@
 // @flow
 import React from 'react';
 import { Route, IndexRoute } from 'react-router';
-import App from './components/app/App';
-import Dashboard from './containers/Dashboard';
+import App from './components/app';
+import Dashboard from './containers/dashboard';
 
 
 export default (

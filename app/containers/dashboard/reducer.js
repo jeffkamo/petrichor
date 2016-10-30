@@ -1,7 +1,7 @@
 import {createReducer} from 'redux-act'
 import {Map} from 'immutable'
-import * as dashboardActions from '../actions/dashboard'
-import {commands} from '../constants'
+import * as dashboardActions from './actions'
+import {commands} from '../../constants'
 
 const initialState = Map({
     mode: commands.START,

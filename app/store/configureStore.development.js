@@ -5,7 +5,7 @@ import { routerMiddleware, push } from 'react-router-redux';
 import createLogger from 'redux-logger';
 import rootReducer from '../reducers';
 
-import * as dashboardActions from '../actions/dashboard';
+import * as dashboardActions from '../containers/dashboard/actions';
 
 const actionCreators = {
   ...dashboardActions,

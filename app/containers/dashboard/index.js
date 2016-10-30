@@ -1,8 +1,8 @@
 // @flow
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import * as DashboardActions from '../actions/dashboard';
-import Dashboard from '../components/dashboard/Dashboard';
+import * as DashboardActions from './actions';
+import Dashboard from '../../components/dashboard';
 
 function mapStateToProps(state) {
   return {

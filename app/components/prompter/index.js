@@ -1,5 +1,4 @@
 import React, { Component, PropTypes } from 'react';
-// import styles from './Prompter.css';
 
 const Prompter = ({mode}) => {
     if (mode === 'start') {
