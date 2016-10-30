@@ -13,40 +13,20 @@ export default class Dashboard extends Component {
         this.onStoryClick = this.onStoryClick.bind(this)
         this.onCombatClick = this.onCombatClick.bind(this)
         this.onExitClick = this.onExitClick.bind(this)
-        // this.renderPrompter = this.renderPrompter.bind(this)
+        this.onContinueClick = this.onContinueClick.bind(this)
+        this.onOffenseClick = this.onOffenseClick.bind(this)
+        this.onDefenseClick = this.onDefenseClick.bind(this)
+        this.onSecondaryClick = this.onSecondaryClick.bind(this)
     }
 
-    onStartClick() {
-        this.props.goToStart()
-    }
-
-    onStoryClick() {
-        this.props.goToStory()
-    }
-
-    onCombatClick() {
-        this.props.goToCombat()
-    }
-
-    onExitClick() {
-        ipc.send('quit')
-    }
-
-    // renderPrompter() {
-    //     const {mode} = this.props.dashboard.toJS()
-    //
-    //     if (mode === 'start') {
-    //         return <p>What would you like to do?</p>
-    //     }
-    //
-    //     if (mode === 'story') {
-    //         return <p>Story time!</p>
-    //     }
-    //
-    //     if (mode === 'combat') {
-    //         return <p>Combat time!</p>
-    //     }
-    // }
+    onStartClick() { this.props.goToStart() }
+    onStoryClick() { this.props.goToStory() }
+    onCombatClick() { this.props.goToCombat() }
+    onExitClick() { ipc.send('quit') }
+    onContinueClick() { console.log('1') }
+    onOffenseClick() { console.log('2') }
+    onDefenseClick() { console.log('3') }
+    onSecondaryClick() { console.log('4') }
 
     render() {
         const {mode} = this.props.dashboard.toJS()
@@ -68,7 +48,11 @@ export default class Dashboard extends Component {
                         onStartClick={this.onStartClick}
                         onStoryClick={this.onStoryClick}
                         onCombatClick={this.onCombatClick}
-                        onExitClick={this.onExitClick} />
+                        onExitClick={this.onExitClick}
+                        onContinueClick={this.onContinueClick}
+                        onOffenseClick={this.onOffenseClick}
+                        onDefenseClick={this.onDefenseClick}
+                        onSecondaryClick={this.onSecondaryClick} />
                 </nav>
             </div>
         )
