@@ -1,21 +1,7 @@
 import {createReducer} from 'redux-act'
 import {Map} from 'immutable'
 import * as dashboardActions from '../actions/dashboard'
-
-const commands = {
-    // Start Menu
-    START: 'start',
-    STORY: 'story',
-    COMBAT: 'combat',
-
-    // Story Menu
-    CONTINUE: 'continue',
-
-    // Combat Menu
-    OFFENSE: 'offense',
-    DEFENSE: 'defense',
-    SECONDARY: 'secondary',
-}
+import {commands} from '../constants'
 
 const initialState = Map({
     mode: commands.START,
@@ -24,36 +10,12 @@ const initialState = Map({
 
 export default createReducer({
 
-    // Mode Setters
-    [dashboardActions.goToStart]: (state, action) => {
-        return state.set('mode', commands.START)
+    [dashboardActions.setMode]: (state, payload) => {
+        return state.set('mode', payload.mode)
     },
 
-    [dashboardActions.goToStory]: (state, action) => {
-        return state.set('mode', commands.STORY)
+    [dashboardActions.setDirective]: (state, payload) => {
+        return state.set('directive', payload.directive)
     },
-
-    [dashboardActions.goToCombat]: (state, action) => {
-        return state.set('mode', commands.COMBAT)
-    },
-
-
-    // Directive Setters
-    [dashboardActions.continueStory]: (state, action) => {
-        return state.set('directive', commands.CONTINUE)
-    },
-
-    [dashboardActions.fightWithOffense]: (state, action) => {
-        return state.set('directive', commands.OFFENSE)
-    },
-
-    [dashboardActions.fightWithDefense]: (state, action) => {
-        return state.set('directive', commands.DEFENSE)
-    },
-
-    [dashboardActions.fightWithSecondary]: (state, action) => {
-        return state.set('directive', commands.SECONDARY)
-    },
-
 
 }, initialState)

@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-// import styles from './Menu.css';
+import {commands} from '../../constants';
 
 import Button from '../button/Button'
 
@@ -7,27 +7,33 @@ const Menu = (props) => {
 
     const menus = {
         start: [
-            ['Story', props.onStoryClick],
-            ['Combat', props.onCombatClick],
-            ['Exit', props.onExitClick],
+            ['Story',  commands.STORY,  props.onSetMode],
+            ['Combat', commands.COMBAT, props.onSetMode],
+            ['Exit',   commands.EXIT,   props.onExitClick],
         ],
         story: [
-            ['Continue', props.onContinueClick],
-            ['Back', props.onStartClick],
+            ['Continue', commands.CONTINUE, props.onSetMode],
+            ['Back',     commands.START,    props.onSetMode],
         ],
         combat: [
-            ['Offense', props.onOffenseClick],
-            ['Defense', props.onDefenseClick],
-            ['Secondary', props.onSecondaryClick],
-            ['Back', props.onStartClick],
+            ['Offense',   commands.OFFENSE,   props.onSetDirective],
+            ['Defense',   commands.DEFENSE,   props.onSetDirective],
+            ['Secondary', commands.SECONDARY, props.onSetDirective],
+            ['Back',      commands.START,     props.onSetMode],
         ],
+    }
+
+    const click = (func, param) => {
+        func(param)
     }
 
     return (
         <div>
-            {menus[props.mode].map(([label, handler], key) =>
+            {menus[props.mode].map(([label, command, handler], key) =>
                 <div key={key}>
-                    <Button onClick={handler}>{label}</Button>
+                    <Button onClick={click.bind(null, handler, command)}>
+                        {label}
+                    </Button>
                 </div>
             )}
         </div>
@@ -36,14 +42,9 @@ const Menu = (props) => {
 
 Menu.propTypes = {
     mode: PropTypes.string.isRequired,
-    onStartClick: PropTypes.func.isRequired,
-    onStoryClick: PropTypes.func.isRequired,
-    onCombatClick: PropTypes.func.isRequired,
     onExitClick: PropTypes.func.isRequired,
-    onContinueClick: PropTypes.func.isRequired,
-    onOffenseClick: PropTypes.func.isRequired,
-    onDefenseClick: PropTypes.func.isRequired,
-    onSecondaryClick: PropTypes.func.isRequired,
+    onSetDirective: PropTypes.func.isRequired,
+    onSetMode: PropTypes.func.isRequired,
 }
 
 export default Menu
