@@ -5,31 +5,12 @@ import styles from './styles.scss';
 
 import Button from '../button'
 
-const Menu = (props) => {
-
-    const menus = {
-        [commands.START]: [
-            ['Story',  commands.STORY,  props.onSetMode],
-            ['Combat', commands.COMBAT, props.onSetMode],
-            ['Exit',   commands.EXIT,   props.onExitClick],
-        ],
-        [commands.STORY]: [
-            ['Continue', commands.CONTINUE, props.onSetDirective],
-            ['Back',     commands.START,    props.onSetMode],
-        ],
-        [commands.COMBAT]: [
-            ['Offense',   commands.OFFENSE,   props.onSetDirective],
-            ['Defense',   commands.DEFENSE,   props.onSetDirective],
-            ['Secondary', commands.SECONDARY, props.onSetDirective],
-            ['Back',      commands.START,     props.onSetMode],
-        ],
-    }
-
-    const click = (func, param) => {
+export default class Menu extends Component {
+    click(func, param) {
         func(param)
     }
 
-    const keyDown = (event) => {
+    keyDown(event) {
         const keyCode = event.keyCode || event.charCode
 
         switch(keyCode) {
@@ -48,18 +29,38 @@ const Menu = (props) => {
         }
     }
 
-    return (
-        <div className={styles.root}>
-            {menus[props.mode].map(([label, command, handler], key) =>
-                <Button
-                    key={key}
-                    onClick={click.bind(undefined, handler, command)}
-                    onKeyDown={keyDown}>
-                    {label}
-                </Button>
-            )}
-        </div>
-    )
+    render() {
+        const menus= {
+            [commands.START]: [
+                ['Story',  commands.STORY,  this.props.onSetMode],
+                ['Combat', commands.COMBAT, this.props.onSetMode],
+                ['Exit',   commands.EXIT,   this.props.onExitClick],
+            ],
+            [commands.STORY]: [
+                ['Continue', commands.CONTINUE, this.props.onSetDirective],
+                ['Back',     commands.START,    this.props.onSetMode],
+            ],
+            [commands.COMBAT]: [
+                ['Offense',   commands.OFFENSE,   this.props.onSetDirective],
+                ['Defense',   commands.DEFENSE,   this.props.onSetDirective],
+                ['Secondary', commands.SECONDARY, this.props.onSetDirective],
+                ['Back',      commands.START,     this.props.onSetMode],
+            ],
+        }
+
+        return (
+            <div className={styles.root}>
+                {menus[this.props.mode].map(([label, command, handler], key) =>
+                    <Button
+                        key={key}
+                        onClick={this.click.bind(undefined, handler, command)}
+                        onKeyDown={this.keyDown}>
+                        {label}
+                    </Button>
+                )}
+            </div>
+        )
+    }
 }
 
 Menu.propTypes = {
@@ -68,5 +69,3 @@ Menu.propTypes = {
     onSetDirective: PropTypes.func.isRequired,
     onSetMode: PropTypes.func.isRequired,
 }
-
-export default Menu
