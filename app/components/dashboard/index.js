@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import styles from './styles.css'
+import styles from './styles.scss'
 import {ipcRenderer as ipc} from 'electron'
 
 import Menu from '../menu'

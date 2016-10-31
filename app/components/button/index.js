@@ -1,6 +1,6 @@
 // @flow
 import React, { Component } from 'react'
-import styles from './styles.css'
+import styles from './styles.scss'
 
 export default class Button extends Component {
     render() {

@@ -1,3 +1,8 @@
+// App
+// ===
+
+@import './variables.global';
+
 * {
     box-sizing: border-box;
 }
@@ -15,11 +20,11 @@ body {
 body {
     position: relative;
 
-    background: #343a47;
+    background: $background-color;
 
-    color: #c0c5ce;
-    font-family: 'Source Code Pro', 'Courier New', 'Courier', monospace, serif;
-    font-size: 16px;
+    color: $neutral-40;
+    font-family: $font-family;
+    font-size: $font-size;
 }
 
 h1,
@@ -31,8 +36,6 @@ h6 {
     margin: 0;
 
     font-weight: bold;
-    font-size: 18px;
-    letter-spacing: -.025em;
 }
 
 li {
@@ -59,9 +62,9 @@ dl {
 }
 
 dd + dt {
-    padding: 16px 0 0;
+    padding: $unit*2 0 0;
 }
 
 p {
-    margin: 0 0 16px;
+    margin: 0 0 $unit*2;
 }

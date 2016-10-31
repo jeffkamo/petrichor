@@ -27,7 +27,7 @@ module.exports = {
       pattern: /counterActions/
     },
     {
-      file: 'app/app.global.css',
+      file: 'app/styles/app.global.css',
       clear: true
     },
     {

@@ -1,0 +1,60 @@
+// Button
+// ===
+
+@import '../../styles/variables.global';
+
+
+// Root
+// ---
+
+.root {
+    display: inline-table;
+    justify-content: center;
+    align-items: center;
+    min-width: $tap-size;
+    min-height: $tap-size;
+    padding: 0;
+    border: 0;
+
+    background: transparent;
+
+    color: inherit;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+
+    -webkit-appearance: none;
+
+    &:focus {
+        outline: 0;
+    }
+
+    &:focus .inner,
+    &:focus .inner::before {
+        color: $focus-color;
+    }
+
+    &[disabled] {
+        opacity: 0.2;
+    }
+}
+
+
+// Inner
+// ---
+
+.inner {
+    display: flex;
+    align-items: center;
+
+    &::before,
+    &::after {
+        content: '>';
+
+        display: block;
+        flex: 0 0 auto;
+        padding-right: $unit*1.5;
+
+        color: transparent;
+    }
+}

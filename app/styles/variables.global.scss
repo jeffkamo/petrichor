@@ -1,0 +1,51 @@
+// Variables
+// ===
+
+// Box Model
+// ---
+
+$unit: 8px;
+$tap-size: 44px;
+
+
+// Typography
+// ---
+
+$font-family: 'Source Code Pro', 'Courier New', 'Courier', monospace, serif;
+$font-size: 16px;
+$line-height: 20px;
+$font-color: #fff;
+
+
+// Colors
+// ---
+
+// Neutrals
+$neutral-10: #fff;
+// $neutral-15: #f7f7f7;
+// $neutral-30: #eee;
+$neutral-40: #c0c5ce;
+$neutral-55: #3e4350;
+$neutral-60: #343a47;
+
+// Accent
+$accent-color: rgba(0, 255, 255, 0.85); // cyan
+
+// Secondary
+$secondary-color: #f44336; // red
+
+// Other
+$background-color: $neutral-60;
+$focus-color: $accent-color;
+
+
+// Layer (z-index)
+// ---
+
+// Organizes z-index usage by name. Values can be incremented/decremented
+// slightly as necessary. eg. $z1-layer + 1;
+
+$z1-depth: 1;    // background
+$z2-depth: 10;   // icon or other ui element
+$z3-depth: 100;  // modal shade or similar
+$z4-depth: 1000; // modal dialog or similar
