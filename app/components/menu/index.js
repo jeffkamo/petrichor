@@ -12,7 +12,7 @@ const Menu = (props) => {
             ['Exit',   commands.EXIT,   props.onExitClick],
         ],
         [commands.STORY]: [
-            ['Continue', commands.CONTINUE, props.onSetMode],
+            ['Continue', commands.CONTINUE, props.onSetDirective],
             ['Back',     commands.START,    props.onSetMode],
         ],
         [commands.COMBAT]: [
