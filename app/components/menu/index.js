@@ -6,6 +6,25 @@ import styles from './styles.scss';
 import Button from '../button'
 
 export default class Menu extends Component {
+    componentDidMount() {
+        this.resetFocus()
+    }
+
+    componentDidUpdate(prevProps, prevState) {
+        // With this check, focus will only reset if the menu mode changes.
+        // This way, it will be less disorienting when focus stays on the same
+        // button you clicked (and it – the button and the focus – stays in the
+        // same place)
+        if (prevProps.mode !== this.props.mode) {
+            // The menu mode has changed! Reset focus to the first menu button
+            this.resetFocus()
+        }
+    }
+
+    resetFocus() {
+        this.refs.root.firstChild.focus()
+    }
+
     click(func, param) {
         func(param)
     }
@@ -49,7 +68,7 @@ export default class Menu extends Component {
         }
 
         return (
-            <div className={styles.root}>
+            <div className={styles.root} ref="root">
                 {menus[this.props.mode].map(([label, command, handler], key) =>
                     <Button
                         key={key}
