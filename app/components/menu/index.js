@@ -1,5 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import {commands} from '../../constants';
+import {keyMap} from '../../utils/a11y';
+import styles from './styles.scss';
 
 import Button from '../button'
 
@@ -27,14 +29,34 @@ const Menu = (props) => {
         func(param)
     }
 
+    const keyDown = (event) => {
+        const keyCode = event.keyCode || event.charCode
+
+        switch(keyCode) {
+            case keyMap.up:
+                if (event.target.previousSibling) {
+                    event.target.previousSibling.focus()
+                }
+                break
+            case keyMap.down:
+                if (event.target.nextSibling) {
+                    event.target.nextSibling.focus()
+                }
+                break
+            default:
+                break
+        }
+    }
+
     return (
-        <div>
+        <div className={styles.root}>
             {menus[props.mode].map(([label, command, handler], key) =>
-                <div key={key}>
-                    <Button onClick={click.bind(null, handler, command)}>
-                        {label}
-                    </Button>
-                </div>
+                <Button
+                    key={key}
+                    onClick={click.bind(undefined, handler, command)}
+                    onKeyDown={keyDown}>
+                    {label}
+                </Button>
             )}
         </div>
     )

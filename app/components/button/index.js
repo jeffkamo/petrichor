@@ -4,14 +4,20 @@ import styles from './styles.scss'
 
 export default class Button extends Component {
     render() {
-        const {onClick} = this.props
+        const {onClick, onKeyDown} = this.props
         const disabled = !!this.props.disabled
 
         return (
-            <button className={styles.root} disabled={disabled} onClick={onClick}>
+            <button
+                className={styles.root}
+                disabled={disabled}
+                onClick={onClick}
+                onKeyDown={onKeyDown}>
+
                 <div className={styles.inner}>
                     {this.props.children}
                 </div>
+
             </button>
         )
     }
