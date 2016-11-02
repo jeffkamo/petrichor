@@ -34,7 +34,7 @@ The folder structure is a modification of [electron-react-boilerplate](https://g
 
 | Directory | Description |
 | ------ | ----------- |
-| `/app` | The game's front-end logic, build with React. |
+| `/app` | The game's front-end logic, built with React. |
 | `/bin` | Standalone NPM scripts. Used for things like one-off, automated tasks. |
 | `/engine` | _Deprecated_ |
 | `/scripts` | Modules for use elsewhere in the application. In particular, these are not necessarily used by themselves. |
