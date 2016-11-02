@@ -28,6 +28,18 @@ $ npm install
 $ npm run dev
 ```
 
+## Folder Structure
+
+The folder structure is a modification of [electron-react-boilerplate](https://github.com/chentsulin/electron-react-boilerplate), with tweaks to suit the needs of this game. Points of interest in the folder structure are (more for future reference):
+
+| Directory | Description |
+| ------ | ----------- |
+| `/app` | The game's front-end logic, build with React. |
+| `/bin` | Standalone NPM scripts. Used for things like one-off, automated tasks. |
+| `/engine` | _Deprecated_ |
+| `/scripts` | Modules for use elsewhere in the application. In particular, these are not necessarily used by themselves. |
+| `/test` | Test directory. Leftover from the boilerplate (not if I'll use it...) |
+
 ## DevTools
 
 #### Toggle Chrome DevTools
