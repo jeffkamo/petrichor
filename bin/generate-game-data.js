@@ -1,5 +1,3 @@
-var fs = require('fs');
-var path = require('path');
 var connect = require('../scripts/connect');
 var fileUtils = require('../scripts/file-utils');
 
