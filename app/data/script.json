@@ -1,0 +1,61 @@
+{
+  "1": {
+    "1": "name",
+    "2": "text",
+    "3": "type",
+    "4": "speed",
+    "5": "trigger",
+    "6": "options"
+  },
+  "2": {
+    "1": "kamina",
+    "2": "Basch, well there you are! Hey, yo, wait up!",
+    "3": "wait",
+    "5": "changeParty",
+    "6": "[ 'kamina', 'basch' ]"
+  },
+  "3": {
+    "1": "kamina",
+    "2": "Oh uh, wait why are you even here still? Shouldn't you have gone north?",
+    "3": "auto"
+  },
+  "4": {
+    "1": "basch",
+    "2": "[\"I don't know.\", \"Because.\", \"Do you always talk so much?\"]",
+    "3": "answer"
+  },
+  "5": {
+    "1": "kamina",
+    "2": "Yeah that's right, you're suppose to be at the delegation to help negotiate the–",
+    "3": "auto"
+  },
+  "6": {
+    "1": "basch",
+    "2": "Shhh! Hold, did you hear that?",
+    "3": "wait"
+  },
+  "7": {
+    "1": "kamina",
+    "2": "...",
+    "3": "auto",
+    "4": 1000
+  },
+  "8": {
+    "1": "kamina",
+    "2": "Hear what? You sure you aren't just hearing thi–",
+    "3": "wait"
+  },
+  "9": {
+    "1": "basch",
+    "2": "Oh $#*&, it's as I feared.",
+    "3": "wait"
+  },
+  "10": {
+    "1": "basch",
+    "2": "WE'VE BEEN SURROUNDED!",
+    "3": "auto",
+    "4": 400,
+    "5": "combat",
+    "6": "[ 'plebe', 'plebe', 'plebe', 'knight' ]"
+  }
+}

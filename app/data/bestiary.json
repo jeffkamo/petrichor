@@ -1,0 +1,265 @@
+{
+  "1": {
+    "1": "Name",
+    "2": "Slug",
+    "3": "Region",
+    "4": "Description",
+    "5": "Level",
+    "6": "!Stat Count",
+    "7": "Strength",
+    "8": "Intelligence",
+    "9": "Vitality",
+    "10": "Arcana",
+    "11": "Defense",
+    "12": "Mystica",
+    "13": "Accuracy",
+    "14": "Agiliy",
+    "15": "!HP",
+    "16": "!MP",
+    "17": "!Limit",
+    "18": "!Phys. Attack",
+    "19": "!Magic Attack",
+    "20": "!Phys. Defense",
+    "21": "!Magic Defense",
+    "22": "!Experience",
+    "23": "Offensive",
+    "24": "Defensive",
+    "25": "Secondary"
+  },
+  "2": {
+    "1": "Plebe",
+    "2": "plebe",
+    "3": "Alexandria",
+    "4": "A member of the common people.",
+    "5": 8,
+    "6": "=SUM(G2:L2)",
+    "7": 3,
+    "8": 1,
+    "9": 1,
+    "10": 1,
+    "11": 1,
+    "12": 1,
+    "13": 0.8,
+    "14": 1,
+    "15": "='Mechanics Manual'!R26C2+(E2*I2)",
+    "16": "='Mechanics Manual'!R27C2+(E2*J2)",
+    "17": "=('Mechanics Manual'!R28C2*L2)+(E2/2)",
+    "18": "='Mechanics Manual'!R29C2+(E2*G2)",
+    "19": "='Mechanics Manual'!R30C2+(E2*H2)",
+    "20": "='Mechanics Manual'!R31C2+(E2*K2)",
+    "21": "='Mechanics Manual'!R32C2+(E2*L2)",
+    "22": "=(E2*10)+(F2*4)",
+    "23": "attack",
+    "24": "item",
+    "25": "libra"
+  },
+  "3": {
+    "1": "Augur Knight",
+    "2": "augurKnight",
+    "3": "Alexandria",
+    "4": "A royal warrior, and protector of kings.",
+    "5": 10,
+    "6": "=SUM(G3:L3)",
+    "7": 3,
+    "8": 1,
+    "9": 3,
+    "10": 1,
+    "11": 1,
+    "12": 1,
+    "13": 0.8,
+    "14": 1,
+    "15": "='Mechanics Manual'!R26C2+(E3*I3)",
+    "16": "='Mechanics Manual'!R27C2+(E3*J3)",
+    "17": "=('Mechanics Manual'!R28C2*L3)+(E3/2)",
+    "18": "='Mechanics Manual'!R29C2+(E3*G3)",
+    "19": "='Mechanics Manual'!R30C2+(E3*H3)",
+    "20": "='Mechanics Manual'!R31C2+(E3*K3)",
+    "21": "='Mechanics Manual'!R32C2+(E3*L3)",
+    "22": "=(E3*10)+(F3*4)",
+    "23": "attack",
+    "24": "item",
+    "25": "libra"
+  },
+  "4": {
+    "1": "Mage",
+    "2": "mage",
+    "3": "Alexandria",
+    "4": "A mysterious yet wonderous class of men who wield the elements at their finger tips.",
+    "5": 14,
+    "6": "=SUM(G4:L4)",
+    "7": 1,
+    "8": 5,
+    "9": 2,
+    "10": 3,
+    "11": 1,
+    "12": 2,
+    "13": 0.5,
+    "14": 0.8,
+    "15": "='Mechanics Manual'!R26C2+(E4*I4)",
+    "16": "='Mechanics Manual'!R27C2+(E4*J4)",
+    "17": "=('Mechanics Manual'!R28C2*L4)+(E4/2)",
+    "18": "='Mechanics Manual'!R29C2+(E4*G4)",
+    "19": "='Mechanics Manual'!R30C2+(E4*H4)",
+    "20": "='Mechanics Manual'!R31C2+(E4*K4)",
+    "21": "='Mechanics Manual'!R32C2+(E4*L4)",
+    "22": "=(E4*10)+(F4*4)"
+  },
+  "5": {
+    "1": "Thief",
+    "2": "thief",
+    "3": "Alexandria",
+    "4": "A jerk who steals your stuff",
+    "5": 10,
+    "6": "=SUM(G5:L5)",
+    "7": 3,
+    "8": 1,
+    "9": 2,
+    "10": 1,
+    "11": 1,
+    "12": 2,
+    "13": 0.8,
+    "14": 1,
+    "15": "='Mechanics Manual'!R26C2+(E5*I5)",
+    "16": "='Mechanics Manual'!R27C2+(E5*J5)",
+    "17": "=('Mechanics Manual'!R28C2*L5)+(E5/2)",
+    "18": "='Mechanics Manual'!R29C2+(E5*G5)",
+    "19": "='Mechanics Manual'!R30C2+(E5*H5)",
+    "20": "='Mechanics Manual'!R31C2+(E5*K5)",
+    "21": "='Mechanics Manual'!R32C2+(E5*L5)",
+    "22": "=(E5*10)+(F5*4)"
+  },
+  "6": {
+    "1": "Cactar",
+    "3": "Alexandria"
+  },
+  "7": {
+    "1": "Desert Wolf",
+    "3": "Alexandria"
+  },
+  "8": {
+    "1": "Antlion",
+    "3": "Alexandria"
+  },
+  "9": {
+    "1": "Cactoids",
+    "3": "Alexandria"
+  },
+  "10": {
+    "1": "Assassin",
+    "3": "Alexandria",
+    "4": "Boss"
+  },
+  "11": {
+    "1": "Mageling Mog",
+    "3": "Thornmarch"
+  },
+  "12": {
+    "1": "Sneaky Mog",
+    "3": "Thornmarch"
+  },
+  "13": {
+    "1": "Robed Mog",
+    "3": "Thornmarch"
+  },
+  "14": {
+    "1": "Mog Knight",
+    "3": "Thornmarch"
+  },
+  "15": {
+    "1": "Mantis (Mantor? Mantoids?)",
+    "3": "Thornmarch"
+  },
+  "16": {
+    "1": "Spider",
+    "3": "Thornmarch"
+  },
+  "17": {
+    "1": "Sahuagin",
+    "3": "Thornmarch"
+  },
+  "18": {
+    "1": "Flan",
+    "3": "Thornmarch"
+  },
+  "19": {
+    "1": "Naga",
+    "3": "Thornmarch",
+    "4": "Boss"
+  },
+  "20": {
+    "1": "Viera Skald",
+    "3": "Arlyn Brigantia"
+  },
+  "21": {
+    "1": "Viera Hedge Mage",
+    "3": "Arlyn Brigantia"
+  },
+  "22": {
+    "1": "Viera Fencer",
+    "3": "Arlyn Brigantia"
+  },
+  "23": {
+    "1": "Viera Ram-Rider",
+    "3": "Arlyn Brigantia"
+  },
+  "24": {
+    "1": "Rams n' Goats",
+    "3": "Arlyn Brigantia"
+  },
+  "25": {
+    "1": "Raptor Hawks",
+    "3": "Arlyn Brigantia"
+  },
+  "26": {
+    "1": "Ferral Ronso",
+    "3": "Arlyn Brigantia",
+    "4": "Hunt and eat Viera. Nomadish, orc-like role. Take Viera to breed more food"
+  },
+  "27": {
+    "1": "Swiftfoot Ronso",
+    "3": "Arlyn Brigantia"
+  },
+  "28": {
+    "1": "Ronso Boss",
+    "3": "Arlyn Brigantia",
+    "4": "Boss"
+  },
+  "29": {
+    "1": "Sorcerer",
+    "3": "Luxovia"
+  },
+  "30": {
+    "1": "Magitek",
+    "3": "Luxovia"
+  },
+  "31": {
+    "1": "Sohei",
+    "3": "Luxovia",
+    "4": "Warrior monk"
+  },
+  "32": {
+    "1": "Archmagus",
+    "3": "Luxovia"
+  },
+  "33": {
+    "1": "Dracolich",
+    "3": "Luxovia"
+  },
+  "34": {
+    "1": "Homunculus",
+    "3": "Luxovia"
+  },
+  "35": {
+    "1": "Skeleton Conscript",
+    "3": "Luxovia"
+  },
+  "36": {
+    "1": "Undead Zomble",
+    "3": "Luxovia"
+  },
+  "37": {
+    "1": "Necromancer",
+    "3": "Luxovia",
+    "4": "Boss: Can summon zombles and skeletons"
+  }
+}

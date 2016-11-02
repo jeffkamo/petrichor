@@ -1,0 +1,306 @@
+{
+  "1": {
+    "1": "name",
+    "2": "slug",
+    "3": "type",
+    "4": "description",
+    "5": "mpCost",
+    "6": "area",
+    "7": "baseAccuracy",
+    "8": "baseSpeed",
+    "9": "performSkill",
+    "10": "targetSkill",
+    "11": "effect",
+    "12": "baseEffect"
+  },
+  "2": {
+    "1": "Attack",
+    "2": "attack",
+    "3": "melee",
+    "4": "Basic attack, using the character's equipped weapon",
+    "6": 1,
+    "7": 0.8,
+    "8": 1,
+    "9": "strength",
+    "10": "defense",
+    "11": "damage",
+    "12": 0.8
+  },
+  "3": {
+    "1": "Black Magic",
+    "2": "blackMagic",
+    "3": "spell",
+    "4": "Black magic that burns and consumes",
+    "5": 10,
+    "6": 1,
+    "7": 1,
+    "8": 1,
+    "9": "arcana",
+    "10": "mystica",
+    "11": "damage",
+    "12": 1.2
+  },
+  "4": {
+    "1": "Cure",
+    "2": "cure",
+    "3": "spell",
+    "4": "White magic that heals wounds",
+    "5": 10,
+    "6": 1,
+    "7": 1,
+    "8": 1,
+    "9": "mystica",
+    "10": "mystica",
+    "11": "cure",
+    "12": 1.5
+  },
+  "5": {
+    "1": "Swap",
+    "2": "swap",
+    "3": "ability",
+    "4": "Replace character's stone with another",
+    "7": 1,
+    "8": 1
+  },
+  "6": {
+    "1": "Shield Bash",
+    "2": "shieldBash",
+    "3": "melee",
+    "4": "Increases defense and has chance to stun",
+    "7": 1,
+    "8": 1
+  },
+  "7": {
+    "1": "Cover",
+    "2": "cover",
+    "3": "ability",
+    "4": "Receive damage in place of another character (low HP first, at random)",
+    "7": 1,
+    "8": 1
+  },
+  "8": {
+    "1": "Libra",
+    "2": "libra",
+    "3": "ability",
+    "4": "Scan & debuff (due to the cost, scanning an enemy should give you some kind of buff against that target for some amount of time... like you've scouted its weakness)",
+    "7": 1,
+    "8": 1
+  },
+  "9": {
+    "1": "Item",
+    "2": "item",
+    "3": "ability",
+    "4": "Spends an item (or \"spends\" if there's no inventory system [??] ) to help one or more allies. Potions to heal, antidote for poison, etc.",
+    "7": 1,
+    "8": 1,
+    "9": "vitality",
+    "10": "vitality",
+    "11": "cure",
+    "12": 0.8
+  },
+  "10": {
+    "1": "Lunge",
+    "2": "lunge",
+    "3": "melee",
+    "4": "Deals extra damage vs. dragons, reptiles, beasts",
+    "7": 1,
+    "8": 1
+  },
+  "11": {
+    "1": "White Draw",
+    "2": "whiteDraw",
+    "3": "spell",
+    "4": "Damage enemy MP and restore party MP",
+    "7": 1,
+    "8": 1
+  },
+  "12": {
+    "1": "Jump",
+    "2": "jump",
+    "3": "spell",
+    "4": "Leap into the air, dodging all attacks and spells; at end of turn, crash down on an enemy for large damage",
+    "7": 1,
+    "8": 1,
+    "12": 4
+  },
+  "13": {
+    "1": "Healing Light",
+    "2": "healingLight",
+    "3": "ability",
+    "4": "Damages dark and undead enemies, heals party",
+    "7": 1,
+    "8": 1,
+    "12": 0.7
+  },
+  "14": {
+    "1": "Curse",
+    "2": "status",
+    "3": "spell",
+    "4": "Inflict a status ailment on a target Poison",
+    "7": 1,
+    "8": 1
+  },
+  "15": {
+    "1": "Group Cast",
+    "2": "groupCast",
+    "3": "spell",
+    "4": "Same as Black Magic, but targets an entire party",
+    "7": 1,
+    "8": 1,
+    "12": 0.7
+  },
+  "16": {
+    "1": "Flurry Attack",
+    "2": "flurryAttack",
+    "3": "melee",
+    "4": "Confusion and some damage",
+    "7": 1,
+    "8": 1
+  },
+  "17": {
+    "1": "Parry",
+    "2": "parry",
+    "3": "ability",
+    "4": "Increases evasion, and if evades attack get's a free counter attack",
+    "7": 1,
+    "8": 1,
+    "12": 2
+  },
+  "18": {
+    "1": "Leap Attack",
+    "2": "leapAttack",
+    "3": "melee",
+    "4": "Physical damage to the enemy party.",
+    "7": 1,
+    "8": 1
+  },
+  "19": {
+    "1": "White Debuffs",
+    "2": "whiteDebuffs",
+    "3": "spell",
+    "4": "Blind, Aero",
+    "7": 1,
+    "8": 1
+  },
+  "20": {
+    "1": "White Magic",
+    "2": "whiteMagic",
+    "3": "spell",
+    "4": "Cure, Esuna",
+    "7": 1,
+    "8": 1
+  },
+  "21": {
+    "1": "Revive",
+    "2": "revive",
+    "3": "spell",
+    "4": "Brings dead character back to life",
+    "7": 1,
+    "8": 1
+  },
+  "22": {
+    "1": "Group Esuna",
+    "2": "groupEsuna",
+    "3": "spell",
+    "4": "Removes status ailments from entire party",
+    "7": 1,
+    "8": 1
+  },
+  "23": {
+    "1": "Break",
+    "2": "break",
+    "3": "ability",
+    "4": "Reduces physical and/or magical defenses",
+    "7": 1,
+    "8": 1
+  },
+  "24": {
+    "1": "Provoke",
+    "2": "provoke",
+    "3": "ability",
+    "4": "Increase threat to get enemies to target you",
+    "7": 1,
+    "8": 1
+  },
+  "25": {
+    "1": "Pillage",
+    "2": "pillage",
+    "3": "ability",
+    "4": "Rallies all party to deal physical damage to one target",
+    "7": 1,
+    "8": 1
+  },
+  "26": {
+    "1": "Dark Bane",
+    "2": "darkBane",
+    "3": "spell",
+    "4": "Sacrifice life to deal exceptional damage",
+    "7": 1,
+    "8": 1,
+    "12": 1.5
+  },
+  "27": {
+    "1": "Absorb Magic",
+    "2": "absorbMagic",
+    "3": "ability",
+    "4": "Absorb MP to gain some MP",
+    "7": 1,
+    "8": 1
+  },
+  "28": {
+    "1": "Black Bane",
+    "2": "blackBane",
+    "3": "spell",
+    "4": "Sacrifice lots of life to hit all enemies for exceptional damage",
+    "7": 1,
+    "8": 1
+  },
+  "29": {
+    "1": "Time Buffs",
+    "2": "timeBuffs",
+    "3": "spell",
+    "4": "Haste (act twice)",
+    "7": 1,
+    "8": 1
+  },
+  "30": {
+    "1": "Time Debuffs",
+    "2": "timeDebuffs",
+    "3": "spell",
+    "4": "Stop (don't act)",
+    "7": 1,
+    "8": 1
+  },
+  "31": {
+    "1": "Gravity",
+    "2": "gravity",
+    "3": "spell",
+    "4": "Deal 33% damage of the target's current HP",
+    "7": 1,
+    "8": 1
+  },
+  "32": {
+    "1": "Throw",
+    "2": "throw",
+    "3": "abilty",
+    "4": "Chance to use one of three abilities: shuriken (target three random enemies), kunai (medium damage to 1 target), bombs (AOE dmg)",
+    "7": 1,
+    "8": 1
+  },
+  "33": {
+    "1": "Smoke Bomb",
+    "2": "smokeBomb",
+    "3": "ability",
+    "4": "Increase party evasion (agility)",
+    "7": 1,
+    "8": 1
+  },
+  "34": {
+    "1": "Ninjutsu",
+    "2": "ninjutsu",
+    "3": "ability",
+    "4": "Chance to use one of: confuse party, shadow clones, disappear (degrading chance to perfect evade)",
+    "7": 1,
+    "8": 1
+  }
+}
