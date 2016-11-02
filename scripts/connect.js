@@ -1,4 +1,5 @@
 var Spreadsheet = require('edit-google-spreadsheet');
+var atob = require('atob');
 
 var id = {
     bestiary: 'od6',
@@ -20,7 +21,7 @@ var connect = function(sheet, id) {
         worksheetId: id,
         oauth: {
             email: '323823310288-h9d1npe4bu5ldkpkkalr0utof65c4s71@developer.gserviceaccount.com',
-            keyFile: __dirname + '/../' + atob('LnAucGVt')
+            keyFile: __dirname + '/../' + atob('LnBlbQ==')
         }
     }, function sheetReady(err, spreadsheet) {
         if (err) { throw err; }

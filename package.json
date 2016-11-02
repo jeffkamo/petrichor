@@ -40,6 +40,7 @@
   ],
   "devDependencies": {
     "asar": "0.12.3",
+    "atob": "2.0.3",
     "babel-core": "6.17.0",
     "babel-eslint": "7.0.0",
     "babel-loader": "6.2.5",
