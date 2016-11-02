@@ -1,5 +1,6 @@
 var connect = require('../scripts/connect');
 var fileUtils = require('../scripts/file-utils');
+var chalk = require('chalk');
 
 var write = function(filename, object) {
     var pathToWrite = __dirname + '/../app/data/' + filename;
