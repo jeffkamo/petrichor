@@ -1,11 +1,13 @@
 import React, { Component, PropTypes } from 'react';
 import {commands} from '../../constants'
 
+import Battlefield from '../../containers/battlefield'
+
 const Prompter = ({mode}) => {
     const prompts = {
         [commands.START]:  <p>What would you like to do?</p>,
         [commands.STORY]:  <p>Story time!</p>,
-        [commands.COMBAT]: <p>Combat time!</p>,
+        [commands.COMBAT]: <Battlefield />,
     }
 
     return (
