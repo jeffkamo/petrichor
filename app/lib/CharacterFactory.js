@@ -1,7 +1,7 @@
 import fs from 'fs'
 import path from 'path'
 
-// import Ability from './Ability'
+import abilities from './abilities'
 import Being from './Being'
 
 
@@ -32,27 +32,7 @@ const forRows = (rows, callback) => {
 export default class CharacterFactory {
     constructor() {
         this.characterList = {}
-        this.dbAbilityList = {}
-        this.fsAbilityList = {}
-
-        // @TODO: Implement the ability system
-        // Prepare to load file system based abilities
-        // const normalizedPath = path.join(__dirname, "abilities")
-        // const fsList = fs.readdirSync(normalizedPath)
-
-        // for (const file in fsList) {
-        //     const filename = fsList[file]
-        //     const Skill = require("./abilities/" + filename)
-        //     this.fsAbilityList[filename] = Skill
-        // }
-
-        // @TODO: Bind all the methods to `this`
-        // this.init = this.init.bind(this)
-        // this.manufacture = this.manufacture.bind(this)
-        // this.mapCharacterFromSheetRows = this.mapCharacterFromSheetRows.bind(this)
-        // this.mapAbilityFromSheetRows = this.mapAbilityFromSheetRows.bind(this)
-        // this.buildIndividual = this.buildIndividual.bind(this)
-        // this.buildAbility = this.buildAbility.bind(this)
+        this.abilityList = {}
     }
 
 
@@ -70,30 +50,36 @@ export default class CharacterFactory {
     static init(characterRows, abilityRows) {
         const factory = new this
 
-        // @TODO: Implement Ability system
-        // // Filling out the Ability List comes first! This MUST happen before the
-        // // Character List is started.
-        // this._forRows(abilityRows, (currentRow) => {
-        //     // Build a class for the new Ability in a closure to ensure the new
-        //     // class constiable is created fresh after each iteration.
-        //     const map = this.mapAbilityFromSheetRows(abilityRows[currentRow])
-        //
-        //
-        //     // build out the Ability class from the `map` and add it to
-        //     // the dbAbilityList
-        //     this.dbAbilityList[map.slug] = this.buildAbility(map)
-        // })
+        // Filling out the Ability List comes first! This MUST happen before the
+        // Character List is started.
+        forRows(abilityRows, (currentRow) => {
+            // Build a class for the new Ability in a closure to ensure the new
+            // class constiable is created fresh after each iteration.
+            const map = this.mapAbilityFromSheetRows(abilityRows[currentRow])
+            const currentAbility = abilities[map.slug]
+
+            // Check if current ability exists
+            if (currentAbility) {
+                // build out the Ability class from the `map` and add it to
+                // the abilityList
+                factory.abilityList[map.slug] = new currentAbility(map)
+            }
+        })
 
         // Now, we fill out the Character List! This must come after the Ability
         // List has finished filling out.
         forRows(characterRows, (currentRow) => {
             // Build a class for the new Being in a closure to ensure the new
             // class constiable is created fresh after each iteration.
-            const map = this.mapCharacterFromSheetRows(characterRows[currentRow])
+            const beingMap = this.mapCharacterFromSheetRows(characterRows[currentRow])
 
-            // build out the Being class from the `map` and add it to
+            // build out the Being class from the `beingMap`, the complete
+            // `factory.abilityList` list and add the new Being instance to
             // the characterList
-            factory.characterList[map.slug] = new Being(map)
+            factory.characterList[beingMap.slug] = new Being(
+                beingMap,
+                factory.abilityList
+            )
         })
 
         return factory
@@ -169,79 +155,26 @@ export default class CharacterFactory {
             performSkill: abilityRow[9],
             targetSkill:  abilityRow[10],
             effect:       abilityRow[11],
-            baseEffect:   abilityRow[12]
+            baseEffect:   abilityRow[12],
         }
-    }
-
-
-    // Class Method: buildAbility()
-    // ---
-    //
-    // This method is responsible for creating new Abilities based on the provided
-    // spreadsheet map.
-    //
-    // @param {Object} expects the mapped out ability data
-    // @return {Object}
-
-    static buildAbility(map) {
-
-        // @TODO: Implement Ability system
-
-        // // Factory out the new ability!
-        // const currentAbility = function currentAbility(options) {
-        //     Ability.call(this, {
-        //         name:         map.name,
-        //         slug:         map.slug,
-        //         type:         map.type,
-        //         description:  map.description,
-        //
-        //         mpCost:       map.mpCost,
-        //         area:         map.area,
-        //         baseAccuracy: map.baseAccuracy,
-        //         baseSpeed:    map.baseSpeed,
-        //         performSkill: map.performSkill,
-        //         targetSkill:  map.targetSkill,
-        //         effect:       map.effect,
-        //         baseEffect:   map.baseEffect
-        //     })
-        // }
-        //
-        // currentAbility.prototype = Object.create(Ability).prototype
-        // currentAbility.prototype.constructor = Ability.bind({})
-        //
-        // const fsAbility = this.fsAbilityList[map.slug + '.js']
-        // const newAbility = new currentAbility()
-        //
-        // // Extend the current ability with the class methods defined for this
-        // // ability in their ability files, as seen in the `/abilities` directory
-        // if (!!fsAbility) {
-        //     // Only do the following if an fsAbility (script file for this ability)
-        //     // exists for the currentAbility
-        //     for(method in fsAbility.prototype) {
-        //         // All the prototype methods on the fsAbility are added to the
-        //         // newAbility instance, so keep that in mind while scripting
-        //         // abilities, exposing only the necessary methods.
-        //         newAbility.setFunc(method, fsAbility.prototype[method])
-        //     }
-        // }
-        //
-        // return newAbility
     }
 
 
     // Class Instance Method: manufacture()
     // ---
     //
-    // This method manufactures a Character instance, depending on the options
+    // This method manufactures a Being instance, depending on the options
     // passed to it.
     //
-    // @param {Object} Expects a Character type and any other Character options
+    // @param {Object} Expects a Being type and any other Character options
     // @return {Object}
 
     manufacture(options) {
-        // Make a copy of the Being from the list
+        // Make a copy of the Being from the list. For example...
+        // `this.characterList['augurKnight']`
         return new Being(
-            this.characterList[options.type]
+            this.characterList[options.type],
+            this.abilityList
         )
     }
 }

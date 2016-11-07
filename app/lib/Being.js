@@ -1,7 +1,11 @@
 import chance from 'chance'
 
+
+// Being Class
+// ===
+
 export default class Being {
-    constructor(options) {
+    constructor(options = {}, abilityList = {}) {
         // Basics
         this.name        = options.name
         this.slug        = options.slug
@@ -41,6 +45,9 @@ export default class Being {
         this.offensive = options.offensive
         this.defensive = options.defensive
         this.secondary = options.secondary
+        this.offensiveAbility = abilityList[this.offensive]
+        this.defensiveAbility = abilityList[this.defensive]
+        this.secondaryAbility = abilityList[this.secondary]
 
         // summon...
 

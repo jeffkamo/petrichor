@@ -10,7 +10,6 @@ import CharacterFactory from '../../lib/CharacterFactory'
 
 // Populate the CharacterFactory with the Being and Ability data. After this,
 // a new character instance can be manufactured with a single method call!
-// const Factory = new CharacterFactory
 const partyFactory = CharacterFactory.init(characterData, abilityData)
 const enemyFactory = CharacterFactory.init(bestiaryData, abilityData)
 
