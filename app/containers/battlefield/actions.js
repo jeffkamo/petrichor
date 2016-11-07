@@ -6,5 +6,5 @@ import * as utils from '../../utils/utils'
 //     }
 // }
 
-export const setMode = utils.createAction('Setting mode', 'mode')
-export const setDirective = utils.createAction('Setting directive', 'directive')
+export const setParty = utils.createAction('Setting party members', 'party')
+export const setEnemies = utils.createAction('Setting enemy members', 'enemies')

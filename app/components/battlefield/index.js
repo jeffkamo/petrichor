@@ -6,32 +6,43 @@ export default class Battlefield extends Component {
         // children: PropTypes.element.isRequired
     };
 
-    componentWillMount() {
-        console.log('given a preselected list of party members and enemies, generate all Beings instances!')
+    componentDidMount() {
+        const {init} = this.props.battlefield.toJS()
+
+        if (init) {
+            this.props.setParty(['basch', 'kamina'])
+            this.props.setEnemies(['plebe', 'augurKnight'])
+        }
     }
 
     render() {
         const {party, enemies} = this.props.battlefield.toJS()
 
+        const charStats = (member) => (
+            <p key={member.id}>
+                <div><em>{member.name}</em> <small>&nbsp;☆&nbsp;</small> Lv.{member.level}</div>
+                <div>
+                    HP: {member.getCurrentHp()}/{member.getHp()} &nbsp;
+                    MP: {member.getCurrentMp()}/{member.getMp()} &nbsp;
+                </div>
+            </p>
+        )
+
         return (
             <div>
+                <p>:::::::::::::::::::::::::::::::::::::::::::::::</p>
+
                 <p><strong>Party:</strong></p>
 
-                {party.map(({name, region, level}, id) => {
-                    return (
-                        <p key={id}>{name} Level {level}</p>
-                    )
-                })}
+                {party.map((member, id) => charStats(member) )}
 
-                <p>- - -</p>
+                <p>- - - - - - - - - - - - - - - - - - - - - - - -</p>
 
                 <p><strong>Enemies Remaining:</strong></p>
 
-                {enemies.map(({name, region, level}, id) => {
-                    return (
-                        <p key={id}>{name} Level {level}</p>
-                    )
-                })}
+                {enemies.map((member, id) => charStats(member) )}
+
+                <p>:::::::::::::::::::::::::::::::::::::::::::::::</p>
             </div>
         );
     }
