@@ -130,135 +130,167 @@
   },
   "6": {
     "1": "Cactar",
+    "2": "cactor",
     "3": "Alexandria"
   },
   "7": {
     "1": "Desert Wolf",
+    "2": "desertWolf",
     "3": "Alexandria"
   },
   "8": {
     "1": "Antlion",
+    "2": "antilion",
     "3": "Alexandria"
   },
   "9": {
-    "1": "Cactoids",
+    "1": "Cactoid",
+    "2": "cactoid",
     "3": "Alexandria"
   },
   "10": {
     "1": "Assassin",
+    "2": "assassin",
     "3": "Alexandria",
     "4": "Boss"
   },
   "11": {
     "1": "Mageling Mog",
+    "2": "magelingMog",
     "3": "Thornmarch"
   },
   "12": {
     "1": "Sneaky Mog",
+    "2": "sneakyMog",
     "3": "Thornmarch"
   },
   "13": {
     "1": "Robed Mog",
+    "2": "robedMog",
     "3": "Thornmarch"
   },
   "14": {
     "1": "Mog Knight",
+    "2": "mogKnight",
     "3": "Thornmarch"
   },
   "15": {
     "1": "Mantis (Mantor? Mantoids?)",
+    "2": "mantis",
     "3": "Thornmarch"
   },
   "16": {
     "1": "Spider",
+    "2": "spider",
     "3": "Thornmarch"
   },
   "17": {
     "1": "Sahuagin",
+    "2": "sahuagin",
     "3": "Thornmarch"
   },
   "18": {
     "1": "Flan",
+    "2": "flan",
     "3": "Thornmarch"
   },
   "19": {
     "1": "Naga",
+    "2": "naga",
     "3": "Thornmarch",
     "4": "Boss"
   },
   "20": {
     "1": "Viera Skald",
+    "2": "vieraSkald",
     "3": "Arlyn Brigantia"
   },
   "21": {
     "1": "Viera Hedge Mage",
+    "2": "vieraHedgeMage",
     "3": "Arlyn Brigantia"
   },
   "22": {
     "1": "Viera Fencer",
+    "2": "vieraFencer",
     "3": "Arlyn Brigantia"
   },
   "23": {
     "1": "Viera Ram-Rider",
+    "2": "vieraRamRider",
     "3": "Arlyn Brigantia"
   },
   "24": {
     "1": "Rams n' Goats",
+    "2": "ramsNGoats",
     "3": "Arlyn Brigantia"
   },
   "25": {
     "1": "Raptor Hawks",
+    "2": "raptorHawks",
     "3": "Arlyn Brigantia"
   },
   "26": {
     "1": "Ferral Ronso",
+    "2": "ferralRonso",
     "3": "Arlyn Brigantia",
     "4": "Hunt and eat Viera. Nomadish, orc-like role. Take Viera to breed more food"
   },
   "27": {
     "1": "Swiftfoot Ronso",
+    "2": "swiftfoodRonso",
     "3": "Arlyn Brigantia"
   },
   "28": {
     "1": "Ronso Boss",
+    "2": "ronsoBoss",
     "3": "Arlyn Brigantia",
     "4": "Boss"
   },
   "29": {
     "1": "Sorcerer",
+    "2": "sorcerer",
     "3": "Luxovia"
   },
   "30": {
     "1": "Magitek",
+    "2": "magitek",
     "3": "Luxovia"
   },
   "31": {
     "1": "Sohei",
+    "2": "sohei",
     "3": "Luxovia",
     "4": "Warrior monk"
   },
   "32": {
     "1": "Archmagus",
+    "2": "archmagus",
     "3": "Luxovia"
   },
   "33": {
     "1": "Dracolich",
+    "2": "dracolich",
     "3": "Luxovia"
   },
   "34": {
     "1": "Homunculus",
+    "2": "homunculus",
     "3": "Luxovia"
   },
   "35": {
     "1": "Skeleton Conscript",
+    "2": "skeletonConscript",
     "3": "Luxovia"
   },
   "36": {
     "1": "Undead Zomble",
+    "2": "undeadZomble",
     "3": "Luxovia"
   },
   "37": {
     "1": "Necromancer",
+    "2": "necromancer",
     "3": "Luxovia",
     "4": "Boss: Can summon zombles and skeletons"
   }
