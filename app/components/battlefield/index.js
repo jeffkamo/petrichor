@@ -1,5 +1,6 @@
 // @flow
 import React, { Component, PropTypes } from 'react';
+import styles from './styles.scss'
 
 export default class Battlefield extends Component {
     static propTypes = {
@@ -18,8 +19,8 @@ export default class Battlefield extends Component {
     render() {
         const {party, enemies} = this.props.battlefield.toJS()
 
-        const charStats = (member) => (
-            <p key={member.id}>
+        const charStats = (member, id) => (
+            <div key={id} className={styles.character}>
                 <div>
                     <em>{member.name}</em> <small>&nbsp;☆&nbsp;</small> Lv.{member.level}
                 </div>
@@ -28,7 +29,14 @@ export default class Battlefield extends Component {
                     HP: {member.getCurrentHp()}/{member.getHp()} &nbsp;
                     MP: {member.getCurrentMp()}/{member.getMp()} &nbsp;
                 </div>
-            </p>
+
+                <div>
+                    Abilities: &nbsp;
+                    [{member.offensiveAbility.name}] &nbsp;
+                    [{member.defensiveAbility.name}] &nbsp;
+                    [{member.secondaryAbility.name}] &nbsp;
+                </div>
+            </div>
         )
 
         return (
@@ -37,13 +45,13 @@ export default class Battlefield extends Component {
 
                 <p><strong>Party:</strong></p>
 
-                {party.map((member, id) => charStats(member) )}
+                {party.map((member, id) => charStats(member, id) )}
 
                 <p>- - - - - - - - - - - - - - - - - - - - - - - -</p>
 
                 <p><strong>Enemies Remaining:</strong></p>
 
-                {enemies.map((member, id) => charStats(member) )}
+                {enemies.map((member, id) => charStats(member, id) )}
 
                 <p>:::::::::::::::::::::::::::::::::::::::::::::::</p>
             </div>
