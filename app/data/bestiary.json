@@ -102,7 +102,10 @@
     "19": "='Mechanics Manual'!R30C2+(E4*H4)",
     "20": "='Mechanics Manual'!R31C2+(E4*K4)",
     "21": "='Mechanics Manual'!R32C2+(E4*L4)",
-    "22": "=(E4*10)+(F4*4)"
+    "22": "=(E4*10)+(F4*4)",
+    "23": "attack",
+    "24": "item",
+    "25": "libra"
   },
   "5": {
     "1": "Thief",
@@ -126,172 +129,271 @@
     "19": "='Mechanics Manual'!R30C2+(E5*H5)",
     "20": "='Mechanics Manual'!R31C2+(E5*K5)",
     "21": "='Mechanics Manual'!R32C2+(E5*L5)",
-    "22": "=(E5*10)+(F5*4)"
+    "22": "=(E5*10)+(F5*4)",
+    "23": "attack",
+    "24": "item",
+    "25": "libra"
   },
   "6": {
     "1": "Cactar",
     "2": "cactor",
-    "3": "Alexandria"
+    "3": "Alexandria",
+    "23": "attack",
+    "24": "item",
+    "25": "libra"
   },
   "7": {
     "1": "Desert Wolf",
     "2": "desertWolf",
-    "3": "Alexandria"
+    "3": "Alexandria",
+    "23": "attack",
+    "24": "item",
+    "25": "libra"
   },
   "8": {
     "1": "Antlion",
     "2": "antilion",
-    "3": "Alexandria"
+    "3": "Alexandria",
+    "23": "attack",
+    "24": "item",
+    "25": "libra"
   },
   "9": {
     "1": "Cactoid",
     "2": "cactoid",
-    "3": "Alexandria"
+    "3": "Alexandria",
+    "23": "attack",
+    "24": "item",
+    "25": "libra"
   },
   "10": {
     "1": "Assassin",
     "2": "assassin",
     "3": "Alexandria",
-    "4": "Boss"
+    "4": "Boss",
+    "23": "attack",
+    "24": "item",
+    "25": "libra"
   },
   "11": {
     "1": "Mageling Mog",
     "2": "magelingMog",
-    "3": "Thornmarch"
+    "3": "Thornmarch",
+    "23": "attack",
+    "24": "item",
+    "25": "libra"
   },
   "12": {
     "1": "Sneaky Mog",
     "2": "sneakyMog",
-    "3": "Thornmarch"
+    "3": "Thornmarch",
+    "23": "attack",
+    "24": "item",
+    "25": "libra"
   },
   "13": {
     "1": "Robed Mog",
     "2": "robedMog",
-    "3": "Thornmarch"
+    "3": "Thornmarch",
+    "23": "attack",
+    "24": "item",
+    "25": "libra"
   },
   "14": {
     "1": "Mog Knight",
     "2": "mogKnight",
-    "3": "Thornmarch"
+    "3": "Thornmarch",
+    "23": "attack",
+    "24": "item",
+    "25": "libra"
   },
   "15": {
     "1": "Mantis (Mantor? Mantoids?)",
     "2": "mantis",
-    "3": "Thornmarch"
+    "3": "Thornmarch",
+    "23": "attack",
+    "24": "item",
+    "25": "libra"
   },
   "16": {
     "1": "Spider",
     "2": "spider",
-    "3": "Thornmarch"
+    "3": "Thornmarch",
+    "23": "attack",
+    "24": "item",
+    "25": "libra"
   },
   "17": {
     "1": "Sahuagin",
     "2": "sahuagin",
-    "3": "Thornmarch"
+    "3": "Thornmarch",
+    "23": "attack",
+    "24": "item",
+    "25": "libra"
   },
   "18": {
     "1": "Flan",
     "2": "flan",
-    "3": "Thornmarch"
+    "3": "Thornmarch",
+    "23": "attack",
+    "24": "item",
+    "25": "libra"
   },
   "19": {
     "1": "Naga",
     "2": "naga",
     "3": "Thornmarch",
-    "4": "Boss"
+    "4": "Boss",
+    "23": "attack",
+    "24": "item",
+    "25": "libra"
   },
   "20": {
     "1": "Viera Skald",
     "2": "vieraSkald",
-    "3": "Arlyn Brigantia"
+    "3": "Arlyn Brigantia",
+    "23": "attack",
+    "24": "item",
+    "25": "libra"
   },
   "21": {
     "1": "Viera Hedge Mage",
     "2": "vieraHedgeMage",
-    "3": "Arlyn Brigantia"
+    "3": "Arlyn Brigantia",
+    "23": "attack",
+    "24": "item",
+    "25": "libra"
   },
   "22": {
     "1": "Viera Fencer",
     "2": "vieraFencer",
-    "3": "Arlyn Brigantia"
+    "3": "Arlyn Brigantia",
+    "23": "attack",
+    "24": "item",
+    "25": "libra"
   },
   "23": {
     "1": "Viera Ram-Rider",
     "2": "vieraRamRider",
-    "3": "Arlyn Brigantia"
+    "3": "Arlyn Brigantia",
+    "23": "attack",
+    "24": "item",
+    "25": "libra"
   },
   "24": {
     "1": "Rams n' Goats",
     "2": "ramsNGoats",
-    "3": "Arlyn Brigantia"
+    "3": "Arlyn Brigantia",
+    "23": "attack",
+    "24": "item",
+    "25": "libra"
   },
   "25": {
     "1": "Raptor Hawks",
     "2": "raptorHawks",
-    "3": "Arlyn Brigantia"
+    "3": "Arlyn Brigantia",
+    "23": "attack",
+    "24": "item",
+    "25": "libra"
   },
   "26": {
     "1": "Ferral Ronso",
     "2": "ferralRonso",
     "3": "Arlyn Brigantia",
-    "4": "Hunt and eat Viera. Nomadish, orc-like role. Take Viera to breed more food"
+    "4": "Hunt and eat Viera. Nomadish, orc-like role. Take Viera to breed more food",
+    "23": "attack",
+    "24": "item",
+    "25": "libra"
   },
   "27": {
     "1": "Swiftfoot Ronso",
     "2": "swiftfoodRonso",
-    "3": "Arlyn Brigantia"
+    "3": "Arlyn Brigantia",
+    "23": "attack",
+    "24": "item",
+    "25": "libra"
   },
   "28": {
     "1": "Ronso Boss",
     "2": "ronsoBoss",
     "3": "Arlyn Brigantia",
-    "4": "Boss"
+    "4": "Boss",
+    "23": "attack",
+    "24": "item",
+    "25": "libra"
   },
   "29": {
     "1": "Sorcerer",
     "2": "sorcerer",
-    "3": "Luxovia"
+    "3": "Luxovia",
+    "23": "attack",
+    "24": "item",
+    "25": "libra"
   },
   "30": {
     "1": "Magitek",
     "2": "magitek",
-    "3": "Luxovia"
+    "3": "Luxovia",
+    "23": "attack",
+    "24": "item",
+    "25": "libra"
   },
   "31": {
     "1": "Sohei",
     "2": "sohei",
     "3": "Luxovia",
-    "4": "Warrior monk"
+    "4": "Warrior monk",
+    "23": "attack",
+    "24": "item",
+    "25": "libra"
   },
   "32": {
     "1": "Archmagus",
     "2": "archmagus",
-    "3": "Luxovia"
+    "3": "Luxovia",
+    "23": "attack",
+    "24": "item",
+    "25": "libra"
   },
   "33": {
     "1": "Dracolich",
     "2": "dracolich",
-    "3": "Luxovia"
+    "3": "Luxovia",
+    "23": "attack",
+    "24": "item",
+    "25": "libra"
   },
   "34": {
     "1": "Homunculus",
     "2": "homunculus",
-    "3": "Luxovia"
+    "3": "Luxovia",
+    "23": "attack",
+    "24": "item",
+    "25": "libra"
   },
   "35": {
     "1": "Skeleton Conscript",
     "2": "skeletonConscript",
-    "3": "Luxovia"
+    "3": "Luxovia",
+    "23": "attack",
+    "24": "item",
+    "25": "libra"
   },
   "36": {
     "1": "Undead Zomble",
     "2": "undeadZomble",
-    "3": "Luxovia"
+    "3": "Luxovia",
+    "23": "attack",
+    "24": "item",
+    "25": "libra"
   },
   "37": {
     "1": "Necromancer",
     "2": "necromancer",
     "3": "Luxovia",
-    "4": "Boss: Can summon zombles and skeletons"
+    "4": "Boss: Can summon zombles and skeletons",
+    "23": "attack",
+    "24": "item",
+    "25": "libra"
   }
 }
