@@ -1,0 +1,31 @@
+.flex {
+    display: flex;
+}
+
+.inlineFlex {
+    display: inline-flex;
+}
+
+.growAndShrink {
+    flex: 1 1 auto;
+}
+
+.column {
+    flex-direction: column;
+}
+
+.columnReverse {
+    flex-direction: column;
+}
+
+.justifyCenter {
+    justify-content: center;
+}
+
+.alignCenter {
+    align-items: center;
+}
+
+.alignEnd {
+    align-items: flex-end;
+}

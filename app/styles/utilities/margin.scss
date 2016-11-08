@@ -1,0 +1,33 @@
+@import '../variables.global.scss';
+
+.all {
+    margin: $unit;
+}
+
+.allLg {
+    margin: $unit * 2;
+}
+
+.none {
+    margin: 0;
+}
+
+.top {
+    margin-top: $unit;
+}
+
+.right {
+    margin-right: $unit;
+}
+
+.bottom {
+    margin-bottom: $unit;
+}
+
+.bottomLg {
+    margin-bottom: $unit * 2;
+}
+
+.left {
+    margin-left: $unit;
+}

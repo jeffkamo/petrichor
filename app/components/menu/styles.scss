@@ -2,6 +2,5 @@
 // ===
 
 .root {
-    display: inline-flex;
-    flex-direction: column;
+    composes: inlineFlex column from '../../styles/utilities/flexbox.scss';
 }

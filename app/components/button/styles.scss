@@ -8,22 +8,14 @@
 // ---
 
 .root {
-    display: inline-table;
-    justify-content: center;
-    align-items: center;
-    min-width: $tap-size;
-    min-height: $tap-size;
-    padding: 0;
-    border: 0;
-
-    background: transparent;
-
-    color: inherit;
-    font-family: inherit;
-    font-size: inherit;
-    line-height: inherit;
-
-    -webkit-appearance: none;
+    composes: justifyCenter alignCenter from '../../styles/utilities/flexbox.scss';
+    composes: none from '../../styles/utilities/margin.scss';
+    composes: none from '../../styles/utilities/border.scss';
+    composes: transparent from '../../styles/utilities/background.scss';
+    composes: appearanceNone from '../../styles/utilities/general.scss';
+    composes: minTapSize from '../../styles/utilities/dimension.scss';
+    composes: inline from '../../styles/utilities/table.scss';
+    composes: inherit from '../../styles/utilities/text.scss';
 
     &:focus {
         outline: 0;
@@ -44,8 +36,7 @@
 // ---
 
 .inner {
-    display: flex;
-    align-items: center;
+    composes: flex alignCenter from '../../styles/utilities/flexbox.scss';
 
     &::before,
     &::after {

@@ -1,0 +1,19 @@
+@import '../variables.global';
+
+.fullWidth {
+    width: 100%;
+}
+
+.maxWidth {
+    max-width: 100%;
+}
+
+.minTapSize {
+    min-width: $tap-size;
+    min-height: $tap-size;
+}
+
+.viewport {
+    width: 100vw;
+    height: 100vh;
+}

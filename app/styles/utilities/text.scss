@@ -1,0 +1,20 @@
+@import '../variables.global';
+
+.neutral10 {
+    color: rgba($neutral-10, 0.85);
+}
+
+.normal {
+    font-weight: normal;
+}
+
+.small {
+    font-size: $font-size - 4;
+}
+
+.inherit {
+    color: inherit;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+}

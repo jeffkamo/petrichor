@@ -16,5 +16,5 @@
 // ---
 
 .character {
-    margin-bottom: $unit*2;
+    composes: bottomLg from '../../styles/utilities/margin.scss';
 }

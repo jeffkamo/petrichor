@@ -4,43 +4,32 @@
 @import '../../styles/variables.global';
 
 .root {
-    display: flex;
-    flex-direction: column;
-    width: 100vw;
-    height: 100vh;
+    composes: flex column from '../../styles/utilities/flexbox.scss';
+    composes: viewport from '../../styles/utilities/dimension.scss';
 }
 
 .header {
-    display: flex;
-    align-items: center;
-    width: 100%;
-    padding: 8px 16px;
-
-    background: $secondary-color;
+    composes: flex alignCente from '../../styles/utilities/flexbox.scss';
+    composes: fullWidth from '../../styles/utilities/dimension.scss';
+    composes: all rightLg leftLg from '../../styles/utilities/padding.scss';
+    composes: secondary from '../../styles/utilities/background.scss';
 }
 
 .title {
-    color: rgba($neutral-10, 0.85);
-    font-weight: normal;
-    font-size: $font-size - 4;
+    composes: neutral10 normal small from '../../styles/utilities/text.scss';
 }
 
 .body {
-    display: flex;
-    overflow: scroll;
-    flex-direction: column-reverse;
-    align-items: flex-end;
-    flex: 1 1 auto;
+    composes: scroll from '../../styles/utilities/overflow.scss';
+    composes: flex columnReverse alignEnd growAndShrink from '../../styles/utilities/flexbox.scss';
 }
 
 .prompter {
-    width: 100%;
-    max-width: 100%;
-    padding: $unit*2;
+    composes: fullWidth maxWidth from '../../styles/utilities/dimension.scss';
+    composes: allLg from '../../styles/utilities/padding.scss';
 }
 
 .nav {
-    padding: $unit $unit*2;
-
-    background: $neutral-55;
+    composes: neutral55 from '../../styles/utilities/background.scss';
+    composes: all rightLg leftLg from '../../styles/utilities/padding.scss';
 }
