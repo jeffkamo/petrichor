@@ -16,6 +16,11 @@ export default class Battlefield extends Component {
         }
     }
 
+    componentWillUnmount() {
+        this.props.setParty([])
+        this.props.setEnemies([])
+    }
+
     render() {
         const {party, enemies} = this.props.battlefield.toJS()
 
