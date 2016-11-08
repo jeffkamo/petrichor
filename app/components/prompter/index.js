@@ -3,11 +3,11 @@ import {commands} from '../../constants'
 
 import Battlefield from '../../containers/battlefield'
 
-const Prompter = ({mode}) => {
+const Prompter = ({mode, directive, onActionComplete}) => {
     const prompts = {
         [commands.START]:  <p>What would you like to do?</p>,
         [commands.STORY]:  <p>Story time!</p>,
-        [commands.COMBAT]: <Battlefield />,
+        [commands.COMBAT]: <Battlefield directive={directive} onActionComplete={onActionComplete} />,
     }
 
     return (

@@ -1,6 +1,7 @@
 // @flow
 import React, { Component, PropTypes } from 'react';
 import styles from './styles.scss'
+import {commands} from '../../constants'
 
 export default class Battlefield extends Component {
     static propTypes = {
@@ -19,6 +20,42 @@ export default class Battlefield extends Component {
     componentWillUnmount() {
         this.props.setParty([])
         this.props.setEnemies([])
+    }
+
+    componentDidUpdate(prevProps, prevState) {
+
+        // If the directive hasn't changed, take no action
+        if (prevProps.directive === this.props.directive) {
+            console.log('war... war never changes...')
+            return
+        }
+
+        console.log(`CHANGED: ${this.props.directive}`)
+
+        switch(this.props.directive) {
+            case (commands.OFFENSE):
+            case (commands.DEFENSE):
+            case (commands.SECONDARY):
+                // NOTE: This needs to be all synchronous to prevent returning
+                // to a STANDBY state while things are still happening.
+                //
+                // 1. Enemies assign their directives
+                //    a. Loop through this.props.battlefield.enemies
+                //    b. Use `Chance.weighted()` to select the enemy's action
+                //    c. Assign the action with `enemy.setAction(action)`
+                // 2. Determine Initiative
+                // 3. Act!
+                break;
+            case (commands.STANDBY):
+                // Return to the menu and allow the user to select their next
+                // action, or to change modes, etc.
+                console.log('standbying by...')
+                break
+            default:
+                console.log('Cannot compute directive!')
+        }
+
+        setTimeout(this.props.onActionComplete, 2000)
     }
 
     render() {

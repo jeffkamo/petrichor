@@ -49,7 +49,9 @@ export default class Menu extends Component {
     }
 
     render() {
-        const menus= {
+        const {directive} = this.props
+
+        const menus = {
             [commands.START]: [
                 ['Story',  commands.STORY,  this.props.onSetMode],
                 ['Combat', commands.COMBAT, this.props.onSetMode],
@@ -72,6 +74,7 @@ export default class Menu extends Component {
                 {menus[this.props.mode].map(([label, command, handler], key) =>
                     <Button
                         key={key}
+                        disabled={directive !== commands.STANDBY}
                         onClick={this.click.bind(undefined, handler, command)}
                         onKeyDown={this.keyDown}>
                         {label}

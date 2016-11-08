@@ -1,6 +1,4 @@
 export const commands = {
-    STANDBY: 'standby',
-
     // Start Menu
     STORY: 'story',
     COMBAT: 'combat',
@@ -15,5 +13,6 @@ export const commands = {
     SECONDARY: 'secondary',
 
     // Other
+    STANDBY: 'standby',
     START: 'start',
 }

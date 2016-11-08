@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import styles from './styles.scss'
 import {ipcRenderer as ipc} from 'electron'
+import {commands} from '../../constants'
 
 import Menu from '../menu'
 import Prompter from '../prompter'
@@ -12,6 +13,7 @@ export default class Dashboard extends Component {
         this.onExitClick = this.onExitClick.bind(this)
         this.onSetDirective = this.onSetDirective.bind(this)
         this.onSetMode = this.onSetMode.bind(this)
+        this.returnToStandby = this.returnToStandby.bind(this)
     }
 
     onExitClick() {
@@ -26,8 +28,12 @@ export default class Dashboard extends Component {
         this.props.setMode(mode)
     }
 
+    returnToStandby() {
+        this.props.setDirective(commands.STANDBY)
+    }
+
     render() {
-        const {mode} = this.props.dashboard.toJS()
+        const {mode, directive} = this.props.dashboard.toJS()
 
         return (
             <div className={styles.root}>
@@ -37,12 +43,17 @@ export default class Dashboard extends Component {
 
                 <div className={styles.body}>
                     <div className={styles.prompter}>
-                        <Prompter mode={mode} />
+                        <Prompter
+                            mode={mode}
+                            directive={directive}
+                            onActionComplete={this.returnToStandby} />
                     </div>
                 </div>
 
                 <nav role="navigation" className={styles.nav}>
-                    <Menu mode={mode}
+                    <Menu
+                        mode={mode}
+                        directive={directive}
                         onExitClick={this.onExitClick}
                         onSetDirective={this.onSetDirective}
                         onSetMode={this.onSetMode} />
