@@ -5,7 +5,7 @@ import {commands} from '../../constants'
 
 const initialState = Map({
     mode: commands.START,
-    directive: null,
+    directive: commands.STANDBY,
 })
 
 export default createReducer({
