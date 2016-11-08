@@ -6,6 +6,10 @@
     display: inline-flex;
 }
 
+.none {
+    flex: 0 0 auto;
+}
+
 .growAndShrink {
     flex: 1 1 auto;
 }

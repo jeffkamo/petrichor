@@ -9,7 +9,7 @@
 }
 
 .header {
-    composes: flex alignCente from '../../styles/utilities/flexbox.scss';
+    composes: flex alignCente none from '../../styles/utilities/flexbox.scss';
     composes: fullWidth from '../../styles/utilities/dimension.scss';
     composes: all rightLg leftLg from '../../styles/utilities/padding.scss';
     composes: secondary from '../../styles/utilities/background.scss';
