@@ -111,7 +111,7 @@ Combat.prototype.pickEnemyCommand = function() {
             [enemy.getAggression(), enemy.getConservancy(), enemy.getEagerness()]
         );
 
-        enemy.setAction(action);
+        enemy.setDirective(action);
     }
 };
 

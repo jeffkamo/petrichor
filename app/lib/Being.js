@@ -1,4 +1,14 @@
+import {commands} from '../constants'
+
 import chance from 'chance'
+const roll = new Chance()
+
+const uuid = (() => {
+    let i = 0
+    return () => {
+        return i++
+    }
+})()
 
 
 // Being Class
@@ -12,6 +22,9 @@ export default class Being {
         this.region      = options.region
         this.description = options.description
         this.level       = options.level
+
+        // uuid
+        this.uuid        = this.slug + uuid()
 
         // Dmg stats
         this.strength     = options.strength
@@ -94,8 +107,8 @@ export default class Being {
         return 10 + (this.mystica * this.level)
     }
 
-    getAction() {
-        return this[this.action]
+    getDirective() {
+        return this.directive
     }
 
     getAggression() {
@@ -128,14 +141,38 @@ export default class Being {
     // Class Setter Methods
     // ---
 
+    setRandomDirective() {
+        let directive
+
+        // use Chance library to pick the enemy action based on action weight
+        directive = roll.weighted(
+            // list of possible actions
+            [commands.ATTACK, commands.COUNTER, commands.CHARGE],
+            // the weight that the enemy will have for each type of action
+            [this.getAggression(), this.getConservancy(), this.getEagerness()]
+        )
+
+        this.setDirective(directive)
+    }
+
     // @param {String} Expects the String representation of an action, such as
     //        those found in Combat.ACTIONS
-    setAction(action) {
-        this.action = action
+    setDirective(directive) {
+        this.directive = directive
     }
 
     setInitiative() {
-        const ability = this[this.action]
+        let ability
+
+        switch(this.getDirective()) {
+            case commands.ATTACK: ability = this.attackAbility
+                break
+            case commands.COUNTER: ability = this.counterAbility
+                break
+            case commands.CHARGE: ability = this.chargeAbility
+                break
+        }
+
         this.initiative = this.agility * ability.baseSpeed * ( roll.d10() + this.vitality )
     }
 
@@ -185,6 +222,6 @@ export default class Being {
     // @param {Object} Expects the combat instance
 
     doAction(combat) {
-        this.getAction().do(this, combat)
+        this.getDirective().do(this, combat)
     }
 }

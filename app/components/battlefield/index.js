@@ -36,14 +36,18 @@ export default class Battlefield extends Component {
             case (commands.ATTACK):
             case (commands.COUNTER):
             case (commands.CHARGE):
+                // Set Party directives
+                this.props.setPartyDirectives(this.props.directive)
+
                 // NOTE: This needs to be all synchronous to prevent returning
                 // to a STANDBY state while things are still happening.
                 //
                 // 1. Enemies assign their directives
-                //    a. Loop through this.props.battlefield.enemies
-                //    b. Use `Chance.weighted()` to select the enemy's action
-                //    c. Assign the action with `enemy.setAction(action)`
+                this.props.setEnemyDirectives()
+
                 // 2. Determine Initiative
+                this.props.setInitiative()
+
                 // 3. Act!
                 break;
             case (commands.STANDBY):
