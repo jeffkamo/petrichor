@@ -1,0 +1,45 @@
+@import '../variables.global.scss';
+
+.all {
+    padding: $unit;
+}
+
+.allLg {
+    padding: $unit * 2;
+}
+
+.none {
+    padding: 0;
+}
+
+.top {
+    padding-top: $unit;
+}
+
+.right {
+    padding-right: $unit;
+}
+
+.rightMd {
+    padding-right: $unit * 1.5;
+}
+
+.rightLg {
+    padding-right: $unit * 2;
+}
+
+.bottom {
+    padding-bottom: $unit;
+}
+
+.bottomLg {
+    padding-bottom: $unit * 2;
+}
+
+.left {
+    padding-left: $unit;
+}
+
+.leftLg {
+    padding-left: $unit * 2;
+}

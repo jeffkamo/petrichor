@@ -1,0 +1,20 @@
+// Button
+// ===
+
+@import '../../styles/variables.global';
+
+
+// Root
+// ---
+
+.root {
+    //
+}
+
+
+// Character
+// ---
+
+.character {
+    composes: bottomLg from '../../styles/utilities/margin.scss';
+}

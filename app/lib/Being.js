@@ -1,0 +1,227 @@
+import {commands} from '../constants'
+
+import chance from 'chance'
+const roll = new Chance()
+
+const uuid = (() => {
+    let i = 0
+    return () => {
+        return i++
+    }
+})()
+
+
+// Being Class
+// ===
+
+export default class Being {
+    constructor(options = {}, abilityList = {}) {
+        // Basics
+        this.name        = options.name
+        this.slug        = options.slug
+        this.region      = options.region
+        this.description = options.description
+        this.level       = options.level
+
+        // uuid
+        this.uuid        = this.slug + uuid()
+
+        // Dmg stats
+        this.strength     = options.strength
+        this.intelligence = options.intelligence
+
+        // Pool stats
+        this.vitality = options.vitality
+        this.arcana   = options.arcana
+
+        // Defensive stats
+        this.defense = options.defense
+        this.mystica = options.mystica
+
+        // Hit Stats
+        this.accuracy = options.accuracy
+        this.agility  = options.agility
+
+        // Damage (current damage)
+        this.damage = 0
+
+        // Damage (current damage)
+        this.mpSpent = 0
+
+        // Death is only the beginning
+        this.isDead = false
+
+        // Experience
+        this.experience = options.experience
+
+        // Abilities
+        this.attack = options.attack
+        this.counter = options.counter
+        this.charge = options.charge
+        this.attackAbility = abilityList[this.attack]
+        this.counterAbility = abilityList[this.counter]
+        this.chargeAbility = abilityList[this.charge]
+
+        // summon...
+
+        // swap...
+    }
+
+
+    // Getter Methods
+    // ---
+
+    getHp() {
+        return 10 + (this.vitality * this.level)
+    }
+
+    getCurrentHp() {
+        return this.getHp() - this.damage
+    }
+
+    getMp() {
+        return 10 + (this.arcana * this.level)
+    }
+
+    getCurrentMp() {
+        return this.getMp() - this.mpSpent
+    }
+
+    getLimit() {
+        return 1 + (this.mystica * this.level)
+    }
+
+    getPhysicalAttack() {
+        return 10 + (this.strength * this.level)
+    }
+
+    getMagicAttack() {
+        return 10 + (this.intelligence * this.level)
+    }
+
+    getPhysicalDefense() {
+        return 10 + (this.defense * this.level)
+    }
+
+    getMagicDefense() {
+        return 10 + (this.mystica * this.level)
+    }
+
+    getDirective() {
+        return this.directive
+    }
+
+    getAggression() {
+        return 1
+    }
+
+    getConservancy() {
+        const hpPercentile = this.getCurrentHp() / this.getHp()
+
+        if (hpPercentile <= 0.25) {
+            // default conservancy at <= 25% health
+            return 1
+        }
+
+        // default conservancy at > 25% health
+        return 0
+    }
+
+    getEagerness() {
+        if (this.hasMeter()) {
+            // default eagerness
+            return 0.5
+        }
+
+        // has no eagerness if there's no meter
+        return 0
+    }
+
+
+    // Class Setter Methods
+    // ---
+
+    setRandomDirective() {
+        let directive
+
+        // use Chance library to pick the enemy action based on action weight
+        directive = roll.weighted(
+            // list of possible actions
+            [commands.ATTACK, commands.COUNTER, commands.CHARGE],
+            // the weight that the enemy will have for each type of action
+            [this.getAggression(), this.getConservancy(), this.getEagerness()]
+        )
+
+        this.setDirective(directive)
+    }
+
+    // @param {String} Expects the String representation of an action, such as
+    //        those found in Combat.ACTIONS
+    setDirective(directive) {
+        this.directive = directive
+    }
+
+    setInitiative() {
+        let ability
+
+        switch(this.getDirective()) {
+            case commands.ATTACK: ability = this.attackAbility
+                break
+            case commands.COUNTER: ability = this.counterAbility
+                break
+            case commands.CHARGE: ability = this.chargeAbility
+                break
+        }
+
+        this.initiative = this.agility * ability.baseSpeed * ( roll.d10() + this.vitality )
+    }
+
+    setAllegiences(allegiances) {
+        this.allies = allegiances.allies
+        this.opponents = allegiances.opponents
+    }
+
+    addDamage(damage) {
+        const newDamage = this.damage + damage
+
+        if (newDamage > this.getHp()) {
+            this.damage = this.getHp()
+            return
+        } else if (newDamage < 0) {
+            this.damage = 0
+            return
+        }
+
+        this.damage = newDamage
+    }
+
+    kill() {
+        this.isDead = true
+    }
+
+    revive() {
+        this.isDead = false
+    }
+
+
+    // Class Boolean Methods
+    // ---
+
+    hasMeter() {
+        // @TODO finish this properly – requires meter to be implemented.
+        // Does something like, if (this.hasMeter) { return true } return false
+        return false
+    }
+
+
+    // Class Methods: doAction
+    // ---
+    //
+    // Performs the action set in the above setAction() method
+    //
+    // @param {Object} Expects the combat instance
+
+    doAction(combat) {
+        this.getDirective().do(this, combat)
+    }
+}

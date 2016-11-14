@@ -1,0 +1,6 @@
+// Menu
+// ===
+
+.root {
+    composes: inlineFlex column from '../../styles/utilities/flexbox.scss';
+}

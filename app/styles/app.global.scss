@@ -1,0 +1,70 @@
+// App
+// ===
+
+@import './variables.global';
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    min-width: 100vw;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+
+    -webkit-app-region: drag;
+}
+
+body {
+    position: relative;
+
+    background: $background-color;
+
+    color: $neutral-40;
+    font-family: $font-family;
+    font-size: $font-size;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0;
+
+    font-weight: bold;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    opacity: .75;
+
+    color: white;
+    text-decoration: none;
+}
+
+a:hover {
+    opacity: 1;
+
+    text-decoration: none;
+
+    cursor: pointer;
+}
+
+dl {
+    margin: 0;
+}
+
+dd + dt {
+    padding: $unit*2 0 0;
+}
+
+p {
+    margin: 0 0 $unit*2;
+}

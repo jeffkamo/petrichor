@@ -1,0 +1,35 @@
+// Dashboard
+// ===
+
+@import '../../styles/variables.global';
+
+.root {
+    composes: flex column from '../../styles/utilities/flexbox.scss';
+    composes: viewport from '../../styles/utilities/dimension.scss';
+}
+
+.header {
+    composes: flex alignCente none from '../../styles/utilities/flexbox.scss';
+    composes: fullWidth from '../../styles/utilities/dimension.scss';
+    composes: all rightLg leftLg from '../../styles/utilities/padding.scss';
+    composes: secondary from '../../styles/utilities/background.scss';
+}
+
+.title {
+    composes: neutral10 normal small from '../../styles/utilities/text.scss';
+}
+
+.body {
+    composes: scroll from '../../styles/utilities/overflow.scss';
+    composes: flex columnReverse alignEnd growAndShrink from '../../styles/utilities/flexbox.scss';
+}
+
+.prompter {
+    composes: fullWidth maxWidth from '../../styles/utilities/dimension.scss';
+    composes: allLg from '../../styles/utilities/padding.scss';
+}
+
+.nav {
+    composes: neutral55 from '../../styles/utilities/background.scss';
+    composes: all rightLg leftLg from '../../styles/utilities/padding.scss';
+}

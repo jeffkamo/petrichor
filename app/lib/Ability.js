@@ -1,0 +1,102 @@
+import Chance from 'chance'
+
+const roll = new Chance()
+
+
+// Ability Class
+// ===
+
+export default class Ability {
+    constructor(options) {
+        this.name         = options.name
+        this.slug         = options.slug
+        this.type         = options.region
+        this.description  = options.description
+
+        this.mpCost       = options.mpCost
+        this.area         = options.area
+        this.baseAccuracy = options.baseAccuracy
+        this.baseSpeed    = options.baseSpeed
+        this.performSkill = options.performSkill
+        this.targetSkill  = options.targetSkill
+        this.effect       = options.effect
+        this.baseEffect   = options.baseEffect
+
+        this.target    = null
+        this.performer = null
+    }
+
+
+    // Class Instance Methods: Setters
+    // ---
+    //
+    // This method is exposed to allow the ability factory (in CharacterFactory) to
+    // add or overwrite prototype methods as necessary according to any given
+    // ability script. For example, below there is `do()` that does nothing by
+    // default, so an ability's script will create it's own `do()` method with more
+    // functionality, then the ability factory will add the new method to that
+    // ability's instance.
+
+    setFunc(name, func) {
+        this[name] = func
+    }
+
+    setPerformer(performer) {
+        this.performer = performer
+    }
+
+    setTarget(target) {
+        this.target = target
+    }
+
+
+    // Class Calculate Method: Calculators
+    // ---
+    //
+    // These are common calculations that many abilities will often make use of.
+
+    calculate() {
+        return {
+            physical: {
+                toHit: _physicalToHit.bind(this),
+                damage: _physicalDamage.bind(this)
+            },
+            magical: {
+                // toHit: _magicToHit.bind(this),
+                // damage: _magicDamage.bind(this)
+            }
+        }
+    }
+
+
+    // Class Isntance Method: Do
+    // ---
+    //
+    // Executres the ability (in combat)
+    //
+    // @param {Object} Expects the combat instance
+
+    do(combat) {
+        // does nothing by default... this method is replaced by the do() methods
+        // as described in each abilities individual file. The overwriting of this
+        // method occurs during the Character Factoring.
+        console.log('does nothing by default')
+    }
+}
+
+
+// Private Methods
+// ---
+
+var _physicalToHit = function() {
+    return this.baseAccuracy * (this.performer.accuracy / this.target.agility) * 100
+}
+
+var _physicalDamage = function() {
+    var damageRoll = roll.d10()
+    var damageBase = (damageRoll * this.performer[this.performSkill] * this.performer.level) / 12
+    var defense = (this.target[this.targetSkill] * this.target.level) / 24
+    var result = this.baseEffect * (damageBase) - defense
+
+    return Math.round(result)
+}
