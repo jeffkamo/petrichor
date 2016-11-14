@@ -33,9 +33,9 @@ export default class Battlefield extends Component {
         console.log(`CHANGED: ${this.props.directive}`)
 
         switch(this.props.directive) {
-            case (commands.OFFENSE):
-            case (commands.DEFENSE):
-            case (commands.SECONDARY):
+            case (commands.ATTACK):
+            case (commands.COUNTER):
+            case (commands.CHARGE):
                 // NOTE: This needs to be all synchronous to prevent returning
                 // to a STANDBY state while things are still happening.
                 //
@@ -74,9 +74,9 @@ export default class Battlefield extends Component {
 
                 <div>
                     Abilities: &nbsp;
-                    [{member.offensiveAbility.name}] &nbsp;
-                    [{member.defensiveAbility.name}] &nbsp;
-                    [{member.secondaryAbility.name}] &nbsp;
+                    [attack] {member.attackAbility.name} &nbsp;
+                    [counter] {member.counterAbility.name} &nbsp;
+                    [charge] {member.chargeAbility.name} &nbsp;
                 </div>
             </div>
         )

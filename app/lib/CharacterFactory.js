@@ -125,9 +125,9 @@ export default class CharacterFactory {
             experience:   characterRow[22],
 
             // Abilities
-            offensive:    characterRow[23],
-            defensive:    characterRow[24],
-            secondary:    characterRow[25],
+            attack:       characterRow[23],
+            counter:      characterRow[24],
+            charge:       characterRow[25],
         }
     }
 

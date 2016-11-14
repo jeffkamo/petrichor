@@ -62,10 +62,10 @@ export default class Menu extends Component {
                 ['Back',     commands.START,    this.props.onSetMode],
             ],
             [commands.COMBAT]: [
-                ['Offense',   commands.OFFENSE,   this.props.onSetDirective],
-                ['Defense',   commands.DEFENSE,   this.props.onSetDirective],
-                ['Secondary', commands.SECONDARY, this.props.onSetDirective],
-                ['Back',      commands.START,     this.props.onSetMode],
+                ['Attack',  commands.ATTACK,  this.props.onSetDirective],
+                ['Counter', commands.COUNTER, this.props.onSetDirective],
+                ['Charge',  commands.CHARGE,  this.props.onSetDirective],
+                ['Back',    commands.START,   this.props.onSetMode],
             ],
         }
 

@@ -8,9 +8,9 @@ export const commands = {
     CONTINUE: 'continue',
 
     // Combat Menu
-    OFFENSE: 'offense',
-    DEFENSE: 'defense',
-    SECONDARY: 'secondary',
+    ATTACK: 'attack',
+    COUNTER: 'counter',
+    CHARGE: 'charge',
 
     // Other
     STANDBY: 'standby',

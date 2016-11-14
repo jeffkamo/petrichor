@@ -42,12 +42,12 @@ export default class Being {
         this.experience = options.experience
 
         // Abilities
-        this.offensive = options.offensive
-        this.defensive = options.defensive
-        this.secondary = options.secondary
-        this.offensiveAbility = abilityList[this.offensive]
-        this.defensiveAbility = abilityList[this.defensive]
-        this.secondaryAbility = abilityList[this.secondary]
+        this.attack = options.attack
+        this.counter = options.counter
+        this.charge = options.charge
+        this.attackAbility = abilityList[this.attack]
+        this.counterAbility = abilityList[this.counter]
+        this.chargeAbility = abilityList[this.charge]
 
         // summon...
 
