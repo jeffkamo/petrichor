@@ -67,6 +67,8 @@ export default class Battlefield extends Component {
                     <em>{member.name}</em> <small>&nbsp;☆&nbsp;</small> Lv.{member.level}
                 </div>
 
+                <div>{member.description}</div>
+
                 <div>
                     HP: {member.getCurrentHp()}/{member.getHp()} &nbsp;
                     MP: {member.getCurrentMp()}/{member.getMp()} &nbsp;
