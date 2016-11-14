@@ -22,9 +22,9 @@
     "20": "!Phys. Defense",
     "21": "!Magic Defense",
     "22": "!Experience",
-    "23": "Offensive",
-    "24": "Defensive",
-    "25": "Secondary"
+    "23": "Attack",
+    "24": "Counter",
+    "25": "Charge"
   },
   "2": {
     "1": "Plebe",
