@@ -1,6 +1,6 @@
-# FF: Train Wreck
+# Project **Petrichor**
 
-A Final Fantasy inspired text adventure novel developed by Jeffrey Kamo and co-written with Roman Kovacic.
+A Final Fantasy inspired text adventure, interactive novel developed by Jeffrey Kamo, co-written and co-designed with Roman Kovacic.
 
 ![fother_34c68a_5509038](https://cloud.githubusercontent.com/assets/734535/14518964/85224aea-01d0-11e6-846f-d43522b4876d.gif)
 
@@ -36,7 +36,7 @@ The folder structure is a modification of [electron-react-boilerplate](https://g
 | ------ | ----------- |
 | `/app` | The game's front-end logic, built with React. |
 | `/bin` | Standalone NPM scripts. Used for things like one-off, automated tasks. |
-| `/engine` | _Deprecated_ |
+| `/engine` | _Deprecated_ To be removed as soon as the port to Electron is complete |
 | `/scripts` | Modules for use elsewhere in the application. In particular, these are not necessarily used by themselves. |
 | `/test` | Test directory. Leftover from the boilerplate (not if I'll use it...) |
 
